@@ -1,5 +1,6 @@
 package com.engappsados.engappsadosapp;
 
+import android.content.Intent;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInApi;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         correo = (TextView)findViewById(R.id.txt_mail);
         SignIn.setOnClickListener(this);
         GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-        GoogleApiClient googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this,this).addApi(Auth.GOOGLE_SIGN_IN_API,signInOptions.Builder));
+        googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this,this).addApi(Auth.GOOGLE_SIGN_IN_API,signInOptions).build();
     }
     @Override
     public void onClick(View v) {
@@ -50,13 +52,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
     private void  signInMethod(){
-        IntDef intDef = Auth.GoogleSignInApi.getSignInIntent(GoogleApiClient);
-        startActivityForResult(intDef,REQ_CODE);
+        Intent intent = Auth.GoogleSignInApi.getSignInIntent(this.googleApiClient);
+        startActivityForResult(intent,REQ_CODE);
     }
     private void  handleResult(GoogleSignInResult result){
-
+        if(result.isSuccess()){
+            GoogleSignInAccount account = result.getSignInAccount();
+            String name = account.getDisplayName();
+            String email = account.getEmail();
+            nombre.setText(name);
+            correo.setText(email);
+            updateGUI(true);
+        }
+        else {
+            updateGUI(false);
+        }
     }
-    private void  updateLabels(boolean result){
+    private void  updateGUI(boolean result){
+        if(result) {
+            Prof_secction.setVisibility(1);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == REQ_CODE){
+            GoogleSignInResult  result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            handleResult(result);
+        }
 
     }
 }
