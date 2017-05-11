@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1012140108127",
+    "project_id": "engappsados"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1012140108127:android:8705e467de9b3d0a",
+        "android_client_info": {
+          "package_name": "com.engappsados.engappsadosapp.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1012140108127-0f2q3k9rtbdighnc3cm8hbsu8jj2h0ku.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.engappsados.engappsadosapp.test",
+            "certificate_hash": "a5f48d453e68755722a745c65b6ee817ab3ed2d4"
+          }
+        },
+        {
+          "client_id": "1012140108127-45t7b7sjaf2rapglp8llk3bs6tn5jsdm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_35tzwvyZMxiNSuzgxo--0eUipKKwSb4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
