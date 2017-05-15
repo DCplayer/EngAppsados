@@ -1,3 +1,5 @@
+//Proyectazo re engappsado
+// Rodrigo Arriaza
 package com.engappsados.engappsadosapp;
 
 import android.content.Intent;
@@ -58,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void  handleResult(GoogleSignInResult result){
         if(result.isSuccess()){
             GoogleSignInAccount account = result.getSignInAccount();
+            assert account != null;
             String name = account.getDisplayName();
             String email = account.getEmail();
             nombre.setText(name);
@@ -70,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     private void  updateGUI(boolean result){
         if(result) {
-            Prof_secction.setVisibility(1);
+            Prof_secction.setVisibility(LinearLayout.VISIBLE);
         }
     }
 
