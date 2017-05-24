@@ -24,4 +24,8 @@
 
     <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
     <string name="play_again">Play Again</string>
+
+    <string name="txt_nombre">nombre</string>
+    <string name="txt_mail">correo</string>
+    <string name="txt_login">Login</string>
 </resources>
