@@ -1,21 +1,21 @@
 <resources>
     <string name="app_name">EngappsadosApp</string>
     <string name="title_activity_welcome">Home Screen</string>
-    <string name="next">NEXT</string>
-    <string name="skip">SKIP</string>
-    <string name="start">GOT IT</string>
+    <string name="next">SIGUIENTE</string>
+    <string name="skip">SALTAR</string>
+    <string name="start">LO TENGO</string>
 
     <string name="slide_1_title">Bienvenido</string>
     <string name="slide_1_desc">EngAppsados es la  aplicacion que te permite conocer las últimas
-        noticias de tecnología en Guatemala. Además puedes probar las nuesvas aplicaciones
+        noticias de tecnología en Guatemala. Además puedes probar las nuevas aplicaciones
         desarrolladas por guatemaltecos  y recibir una recompensa por ello.</string>
 
     <string name="slide_2_title">Recompensas</string>
     <string name="slide_2_desc">Con EngAppsados podrás  obtener descuentos y promociones en
-                                restaruarantes, cine y muchos más.</string>
+                                restaurantes, cine y mucho más.</string>
 
     <string name="slide_3_title">Tareas por Cumplir</string>
-    <string name="slide_3_desc">Sólo debes de ir completando las tareas que te daremos.
+    <string name="slide_3_desc">Sólo debes de completar las tareas que te daremos.
         \n\nPuedes: probar apps nuevas,  responder encuestas, buscar bugs dentro de
         aplicaciones en desarrollo y subir fotos de lugares específicos</string>
 
