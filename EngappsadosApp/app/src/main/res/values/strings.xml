@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EngappsadosApp</string>
+    <string name="app_name">Engappsados</string>
     <string name="title_activity_welcome">Home Screen</string>
     <string name="next">SIGUIENTE</string>
     <string name="skip">SALTAR</string>
@@ -28,4 +28,6 @@
     <string name="txt_nombre">nombre</string>
     <string name="txt_mail">correo</string>
     <string name="txt_login">Login</string>
+    <string name="txt_politicas">Al tocar el boton de  sign in acepta los </string>
+    <string name="txt_terminosDeUso">Terminos y Condiciones</string>
 </resources>
