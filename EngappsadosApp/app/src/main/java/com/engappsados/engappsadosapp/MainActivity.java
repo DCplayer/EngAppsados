@@ -1,5 +1,6 @@
-//Proyectazo re engappsado
-// Rodrigo Arriaza
+//Proyecto Engappsado
+// Rodrigo Arriaza,  Sebastian Galindo, Diego Castaneda y Johnny Juarez
+// Actividad principal del programa
 package com.engappsados.engappsadosapp;
 
 import android.content.Intent;
