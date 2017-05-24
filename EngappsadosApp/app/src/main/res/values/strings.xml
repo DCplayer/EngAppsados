@@ -3,7 +3,7 @@
     <string name="title_activity_welcome">Home Screen</string>
     <string name="next">SIGUIENTE</string>
     <string name="skip">SALTAR</string>
-    <string name="start">LO TENGO</string>
+    <string name="start">ENTENDIDO</string>
 
     <string name="slide_1_title">Bienvenido</string>
     <string name="slide_1_desc">EngAppsados es la  aplicacion que te permite conocer las últimas
@@ -12,12 +12,12 @@
 
     <string name="slide_2_title">Recompensas</string>
     <string name="slide_2_desc">Con EngAppsados podrás  obtener descuentos y promociones en
-                                restaurantes, cine y mucho más.</string>
+                                restaurantes, cines y mucho más.</string>
 
     <string name="slide_3_title">Tareas por Cumplir</string>
     <string name="slide_3_desc">Sólo debes de completar las tareas que te daremos.
-        \n\nPuedes: probar apps nuevas,  responder encuestas, buscar bugs dentro de
-        aplicaciones en desarrollo y subir fotos de lugares específicos</string>
+        \n\nPuedes: Probar apps nuevas,  Responder encuestas, Buscar bugs dentro de
+        aplicaciones en desarrollo y subir fotos de lugares específicos.</string>
 
     <string name="slide_4_title">World Travel</string>
     <string name="slide_4_desc">Book tickets of any transportation and travel the world!</string>
