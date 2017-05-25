@@ -30,4 +30,8 @@
     <string name="txt_login">Login</string>
     <string name="txt_politicas">Al tocar el boton de  sign in acepta los </string>
     <string name="txt_terminosDeUso">Terminos y Condiciones</string>
+    
+    <string name="txt_menu_task">Ver lista de tareas</string>
+    <string name="txt_menu_testGTApp">Probar Apps Guatemaltecas</string>
+    <string name="txt_menu_rewards">Recompensas</string>
 </resources>
