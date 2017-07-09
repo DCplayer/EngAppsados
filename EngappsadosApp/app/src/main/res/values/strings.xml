@@ -1,3 +1,37 @@
 <resources>
-    <string name="app_name">EngappsadosApp</string>
+    <string name="app_name">Engappsados</string>
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">SIGUIENTE</string>
+    <string name="skip">SALTAR</string>
+    <string name="start">ENTENDIDO</string>
+
+    <string name="slide_1_title">Bienvenido</string>
+    <string name="slide_1_desc">EngAppsados es la  aplicación que te permite conocer las últimas
+        noticias de tecnología en Guatemala. Además puedes probar las nuevas aplicaciones
+        desarrolladas por guatemaltecos  y recibir una recompensa por ello.</string>
+
+    <string name="slide_2_title">Recompensas</string>
+    <string name="slide_2_desc">Con EngAppsados podrás  obtener descuentos y promociones en
+                                restaurantes, cines y mucho más.</string>
+
+    <string name="slide_3_title">Tareas por Cumplir</string>
+    <string name="slide_3_desc">Sólo debes de completar las tareas que te daremos.
+        \n\nPuedes: Probar apps nuevas,  Responder encuestas, Buscar bugs dentro de
+        aplicaciones en desarrollo y subir fotos de lugares específicos.</string>
+
+    <string name="slide_4_title">World Travel</string>
+    <string name="slide_4_desc">Book tickets of any transportation and travel the world!</string>
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
+
+    <string name="txt_nombre">nombre</string>
+    <string name="txt_mail">correo</string>
+    <string name="txt_login">Login</string>
+    <string name="txt_politicas">Al tocar el boton de  sign in acepta los </string>
+    <string name="txt_terminosDeUso">Terminos y Condiciones</string>
+    
+    <string name="txt_menu_task">Ver lista de tareas</string>
+    <string name="txt_menu_testGTApp">Probar Apps Guatemaltecas</string>
+    <string name="txt_menu_rewards">Recompensas</string>
 </resources>

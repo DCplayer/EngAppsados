@@ -1,7 +1,9 @@
 {
   "project_info": {
     "project_number": "1012140108127",
-    "project_id": "engappsados"
+    "firebase_url": "https://engappsados.firebaseio.com",
+    "project_id": "engappsados",
+    "storage_bucket": "engappsados.appspot.com"
   },
   "client": [
     {
@@ -12,6 +14,10 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "1012140108127-otnbu1r7s8jh6d79mgvtft5on86e5ml8.apps.googleusercontent.com",
+          "client_type": 3
+        },
         {
           "client_id": "1012140108127-0f2q3k9rtbdighnc3cm8hbsu8jj2h0ku.apps.googleusercontent.com",
           "client_type": 1,
@@ -35,11 +41,16 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1012140108127-otnbu1r7s8jh6d79mgvtft5on86e5ml8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     },
@@ -51,6 +62,10 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "1012140108127-otnbu1r7s8jh6d79mgvtft5on86e5ml8.apps.googleusercontent.com",
+          "client_type": 3
+        },
         {
           "client_id": "1012140108127-3s6n9dsaud47d9tvshs7kvgvsj9iqgpc.apps.googleusercontent.com",
           "client_type": 1,
@@ -74,11 +89,16 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1012140108127-otnbu1r7s8jh6d79mgvtft5on86e5ml8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }

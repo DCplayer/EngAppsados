@@ -1,57 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.engappsados.engappsadosapp.MainActivity">
-    <TableLayout
-        android:id="@+id/SingIn_panel"
-        android:layout_width="368dp"
-        android:layout_height="495dp"
-        tools:layout_editor_absoluteY="41dp"
-        tools:layout_editor_absoluteX="0dp">
+    android:background="@android:color/white">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
+<LinearLayout
+    android:id="@+id/SingIn_panel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:gravity="center_vertical"
+    android:background="@android:color/holo_blue_bright"
+    android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="@android:color/white" />
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="203dp"
-            android:layout_height="65dp"
-            android:text="Iniciar sesion" />
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/btn_SignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:onClick="menuPrincipal"/>
 
+    <TextView
+        android:id="@+id/txtVpoliticas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="@string/txt_politicas" />
 
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/btn_SignIn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            ></com.google.android.gms.common.SignInButton>
-
-        <TextView
-            android:id="@+id/txt_name"
-            android:layout_width="58dp"
-            android:layout_height="17dp"
-            android:text="nombre"
-            tools:layout_editor_absoluteX="163dp"
-            tools:layout_editor_absoluteY="311dp" />
-
-        <TextView
-            android:id="@+id/txt_mail"
-            android:layout_width="58dp"
-            android:layout_height="17dp"
-            android:text="mail"
-            tools:layout_editor_absoluteX="163dp"
-            tools:layout_editor_absoluteY="376dp" />
-    </TableLayout>
+    <TextView
+        android:id="@+id/link_politicas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="@string/txt_terminosDeUso"/>
 
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/txt_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="@string/txt_nombre"/>
+
+    <TextView
+        android:id="@+id/txt_mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="@string/txt_mail"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Menu" />
+
+</LinearLayout>
+</RelativeLayout>
+
+
