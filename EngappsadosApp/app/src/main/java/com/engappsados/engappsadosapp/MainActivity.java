@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,10 +33,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final int REQ_CODE = 9001;
     private LinearLayout Prof_secction;
     private SignInButton SignIn;
-    private TextView nombre, correo;
     private GoogleApiClient mGoogleApiClient;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private Button botonMenu;
 
     /*
     * tomado de github de google, disponible en https://github.com/googlesamples/google-services/blob/master/android/signin/app/src/main/java/com/google/samples/quickstart/signin/SignInActivity.java#L51-L55
@@ -46,8 +47,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         Prof_secction = (LinearLayout) findViewById(R.id.SingIn_panel);
         SignIn = (SignInButton) findViewById(R.id.btn_SignIn);
-        mAuth = FirebaseAuth.getInstance();
         SignIn.setOnClickListener(this);
+        mAuth = FirebaseAuth.getInstance();
+
+        botonMenu = (Button) findViewById(R.id.btnMenu);
+        botonMenu.setOnClickListener(this);
         //configuracion del inicio de sesion
         GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -80,6 +84,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (R.id.btn_SignIn == v.getId()) {
             signInMethod();
+        }
+        else if(R.id.btnMenu == v.getId()){
+            updateGUI(true);
         }
 
     }
