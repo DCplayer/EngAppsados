@@ -21,7 +21,8 @@
             android:label="@string/title_activity_welcome"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".MenuPrincipalActivity"></activity>
+        <activity android:name=".MenuPrincipalActivity" />
+        <activity android:name=".Rewards"></activity>
     </application>
 
 </manifest>
