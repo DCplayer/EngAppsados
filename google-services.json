@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "448902208353",
+    "firebase_url": "https://engappsados-e5386.firebaseio.com",
+    "project_id": "engappsados-e5386",
+    "storage_bucket": "engappsados-e5386.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448902208353:android:70fb05cc0139b24e",
+        "android_client_info": {
+          "package_name": "com.engappsados.engappsadosapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448902208353-rh8662beve6sqd3vimqvs665g75cdajl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.engappsados.engappsadosapp",
+            "certificate_hash": "8aed399c028784ed0b56356a533ab0c2612fa140"
+          }
+        },
+        {
+          "client_id": "448902208353-at11a5cbbbcn28i56vmljen13uhs0n6u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPSpua21JLB4agDSNsvNzeNcxZ3g26cnU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448902208353-at11a5cbbbcn28i56vmljen13uhs0n6u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
