@@ -46,8 +46,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         Prof_secction = (LinearLayout) findViewById(R.id.SingIn_panel);
         SignIn = (SignInButton) findViewById(R.id.btn_SignIn);
-        nombre = (TextView) findViewById(R.id.txt_name);
-        correo = (TextView) findViewById(R.id.txt_mail);
         mAuth = FirebaseAuth.getInstance();
         SignIn.setOnClickListener(this);
         //configuracion del inicio de sesion
@@ -158,10 +156,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // login exitoso,
             GoogleSignInAccount account = result.getSignInAccount();
             assert account != null;
-            String name = account.getDisplayName();
-            String email = account.getEmail();
-            nombre.setText(name);
-            correo.setText(email);
             updateGUI(true);
         } else {
             updateGUI(false);
@@ -170,7 +164,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void updateGUI(boolean result) {
         if (result) {
-            Prof_secction.setVisibility(LinearLayout.VISIBLE);
             startActivity(new Intent(MainActivity.this, MenuPrincipalActivity.class));
             finish();
         }
