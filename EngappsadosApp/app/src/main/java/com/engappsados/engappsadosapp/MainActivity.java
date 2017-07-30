@@ -4,6 +4,7 @@
 package com.engappsados.engappsadosapp;
 
 import android.content.Intent;
+import android.support.v7.view.menu.MenuPresenter;
 import android.util.Log;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
@@ -110,8 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void onResult(GoogleSignInResult googleSignInResult) {
                     handleResult(googleSignInResult);
-                }
-            });
+                }        });
         }
     }
 
@@ -127,8 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
 
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        mAuth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
@@ -141,7 +140,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             Toast.makeText(MainActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }
-                        // ...
+                        else {
+                            updateGUI(true);
+                        }
+                        //
                     }
                 });
     }
@@ -169,6 +171,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void updateGUI(boolean result) {
         if (result) {
             Prof_secction.setVisibility(LinearLayout.VISIBLE);
+            startActivity(new Intent(MainActivity.this, MenuPrincipalActivity.class));
+            finish();
         }
     }
 
