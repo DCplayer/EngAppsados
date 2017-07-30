@@ -9,14 +9,22 @@ import android.widget.Button;
 public class MenuPrincipalActivity extends AppCompatActivity {
 
     public Button buttonReward;
-
+    public Button buttonNoticias;
     public void init(){
         buttonReward = (Button)findViewById(R.id.buttonReward);
+        buttonNoticias=(Button)findViewById(R.id.buttonNoticias);
         buttonReward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 Intent recompensa = new Intent(MenuPrincipalActivity.this, Rewards.class);
                 startActivity(recompensa);
+            }
+        });
+        buttonNoticias.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent noticias = new Intent(MenuPrincipalActivity.this, NoticiasActivity.class);
+                startActivity(noticias);
             }
         });
     }

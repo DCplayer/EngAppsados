@@ -22,7 +22,8 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".MenuPrincipalActivity" />
-        <activity android:name=".Rewards"></activity>
+        <activity android:name=".Rewards" />
+        <activity android:name=".NoticiasActivity"></activity>
     </application>
 
 </manifest>
