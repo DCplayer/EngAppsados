@@ -23,7 +23,8 @@
         </activity>
         <activity android:name=".MenuPrincipalActivity" />
         <activity android:name=".Rewards" />
-        <activity android:name=".NoticiasActivity"></activity>
+        <activity android:name=".NoticiasActivity" />
+        <activity android:name=".TareasActivity"></activity>
     </application>
 
 </manifest>
