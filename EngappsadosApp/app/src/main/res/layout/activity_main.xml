@@ -28,8 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="50dp"
-        android:onClick="menuPrincipal"/>
+        android:layout_marginBottom="50dp" />
 
     <TextView
         android:id="@+id/txtVpoliticas"
@@ -48,7 +47,7 @@
         android:id="@+id/btnMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Menu"
+        android:text="Menu Principal Plax"
         android:textAlignment="center"/>
 
 
