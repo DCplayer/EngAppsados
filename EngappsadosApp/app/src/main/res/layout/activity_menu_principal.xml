@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
-        android:background= "#3f374f"
+        android:background= "#212121"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
