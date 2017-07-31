@@ -143,22 +143,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
-                        //Codigo para la creacion de usuarios en la base de datos
-                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                        if (user != null){
-                            String uid = user.getUid();
-                            String nombre = user.getDisplayName();
-                            String email = user.getEmail();
-                            Uri photoURL = user.getPhotoUrl();
-
-                            DatabaseReference current_user_db = mDatabaseRef.child(uid);
-                            current_user_db.child("username").setValue(nombre);
-                            current_user_db.child("e-mail").setValue(email);
-                            current_user_db.child("Imagen").setValue(photoURL);
-                            current_user_db.child("Puntos").setValue(0);
-
-
-                        }
 
                         // If sign in fails, display a message to the user. If sign in succeeds
                         // the auth state listener will be notified and logic to handle the
@@ -169,7 +153,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     Toast.LENGTH_SHORT).show();
                         }
                         else {
-                            updateGUI(true);
+                            //Codigo para la creacion de usuarios en la base de datos
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            Log.d(TAG, "getinstance:" + user);
+                            if (user != null) {
+                                String uid = user.getUid();
+                                String nombre = user.getDisplayName();
+                                String email = user.getEmail();
+                                Uri photoURL = user.getPhotoUrl();
+                                Log.d(TAG, "Url Obtenida"+photoURL);
+                                Log.d(TAG, "Obtuvo los datos del usuario");
+                                DatabaseReference current_user_db = mDatabaseRef.child(uid);
+                                Log.d(TAG, "curente_user_db" + current_user_db);
+                                current_user_db.child("username").setValue(nombre);
+                                current_user_db.child("e-mail").setValue(email);
+                                current_user_db.child("Imagen").setValue(photoURL.toString());
+                                current_user_db.child("Puntos").setValue(0);
+                                updateGUI(true);
+                            }
                         }
                         //
                     }
