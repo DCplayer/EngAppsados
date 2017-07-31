@@ -1,5 +1,7 @@
 package com.engappsados.engappsadosapp;
 
+import android.net.Uri;
+
 import java.net.URI;
 
 /**
@@ -10,13 +12,13 @@ public class User {
     /*Informacion del usuario mismo*/
     public String nombre;
     public String email;
-    public URI photoUrl;
-    public String ubicacion;
+    public Uri photoUrl;
+
 
     /*Datos del usuario dentro de la aplicacion */
     public int puntos;
 
-    public User(String nombre, String email, URI photoUrl){
+    public User(String nombre, String email, Uri photoUrl){
         this.nombre = nombre;
         this.email = email;
         this.photoUrl = photoUrl;

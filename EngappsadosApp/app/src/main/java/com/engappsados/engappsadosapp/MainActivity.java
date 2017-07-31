@@ -4,6 +4,7 @@
 package com.engappsados.engappsadosapp;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.view.menu.MenuPresenter;
 import android.util.Log;
 import android.support.annotation.IntDef;
@@ -27,6 +28,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.firebase.auth.*;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.net.URI;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,GoogleApiClient.OnConnectionFailedListener {
 
     private static final String TAG = "SignInActivity";
@@ -37,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private Button botonMenu;
+    private DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
 
     /*
     * tomado de github de google, disponible en https://github.com/googlesamples/google-services/blob/master/android/signin/app/src/main/java/com/google/samples/quickstart/signin/SignInActivity.java#L51-L55
@@ -136,6 +143,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
+                        //Codigo para la creacion de usuarios en la base de datos
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        if (user != null){
+                            String uid = user.getUid();
+                            String nombre = user.getDisplayName();
+                            String email = user.getEmail();
+                            Uri photoURL = user.getPhotoUrl();
+
+                            DatabaseReference current_user_db = mDatabaseRef.child(uid);
+                            current_user_db.child("username").setValue(nombre);
+                            current_user_db.child("e-mail").setValue(email);
+                            current_user_db.child("Imagen").setValue(photoURL);
+                            current_user_db.child("Puntos").setValue(0);
+
+
+                        }
 
                         // If sign in fails, display a message to the user. If sign in succeeds
                         // the auth state listener will be notified and logic to handle the
