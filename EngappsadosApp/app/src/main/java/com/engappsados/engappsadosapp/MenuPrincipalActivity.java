@@ -15,6 +15,7 @@ public class MenuPrincipalActivity extends AppCompatActivity {
         buttonReward = (Button)findViewById(R.id.buttonReward);
         buttonNoticias=(Button)findViewById(R.id.buttonNoticias);
         buttonTareas=(Button)findViewById(R.id.buttonTareas);
+
         buttonReward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -22,13 +23,14 @@ public class MenuPrincipalActivity extends AppCompatActivity {
                 startActivity(recompensa);
             }
         });
-        buttonNoticias.setOnClickListener(new View.OnClickListener(){
+        buttonNoticias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Intent noticias = new Intent(MenuPrincipalActivity.this, NoticiasActivity.class);
+                Intent noticias = new Intent(MenuPrincipalActivity.this, Noticias.class);
                 startActivity(noticias);
             }
         });
+
         buttonTareas.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -42,6 +44,7 @@ public class MenuPrincipalActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        System.out.println("holalala olalala");
         setContentView(R.layout.activity_menu_principal);
         init();
 

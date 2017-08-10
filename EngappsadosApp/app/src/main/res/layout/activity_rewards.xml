@@ -7,12 +7,18 @@
     tools:context="com.engappsados.engappsadosapp.Rewards">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/recompensasEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Recompensas"
-        tools:layout_editor_absoluteX="82dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp" />
+
+
 </android.support.constraint.ConstraintLayout>
