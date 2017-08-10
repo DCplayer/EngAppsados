@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private Button botonMenu;
+    private Button btn_politicas;
     private DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
 
     /*
@@ -56,6 +57,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         SignIn = (SignInButton) findViewById(R.id.btn_SignIn);
         SignIn.setOnClickListener(this);
         mAuth = FirebaseAuth.getInstance();
+        //hacia politicas de uso
+        btn_politicas = (Button)findViewById(R.id.btn_LinkContrato);
+        btn_politicas.setOnClickListener(this);
+
 
         botonMenu = (Button) findViewById(R.id.btnMenu);
         botonMenu.setOnClickListener(this);
@@ -94,6 +99,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else if(R.id.btnMenu == v.getId()){
             updateGUI(true);
+
+        }
+        else if(R.id.btn_LinkContrato == v.getId()){
+            startActivity(new Intent(MainActivity.this, politicaActivity.class));
         }
 
     }

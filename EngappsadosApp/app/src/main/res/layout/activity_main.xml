@@ -37,12 +37,15 @@
         android:textAlignment="center"
         android:text="@string/txt_politicas" />
 
-    <TextView
-        android:id="@+id/link_politicas"
+
+    <Button
+        android:id="@+id/btn_LinkContrato"
+        android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
+        android:background="@android:color/transparent"
         android:text="@string/txt_terminosDeUso"/>
+
     <Button
         android:id="@+id/btnMenu"
         android:layout_width="wrap_content"

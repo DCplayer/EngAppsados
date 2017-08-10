@@ -29,7 +29,7 @@
     <string name="txt_mail">correo</string>
     <string name="txt_login">Login</string>
     <string name="txt_politicas">Al tocar el boton de  sign in acepta los </string>
-    <string name="txt_terminosDeUso">Terminos y Condiciones</string>
+    <string name="txt_terminosDeUso"><u>Terminos y Condiciones</u></string>
 
     <string name="txt_menu_task">Ver lista de tareas</string>
     <string name="txt_menu_testGTApp">Probar Apps Guatemaltecas</string>
@@ -37,4 +37,7 @@
     <string name="noticia">Noticia</string>
     <string name="pruebaa">pruebaa</string>
     <string name="leer_mas">Leer Mas</string>
+
+    <!-- pliticas de uso-->
+    <string name="politics_title">Pooliticas y Terminos de uso</string>
 </resources>

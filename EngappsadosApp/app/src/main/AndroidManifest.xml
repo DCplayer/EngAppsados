@@ -24,7 +24,8 @@
         <activity android:name=".MenuPrincipalActivity" />
         <activity android:name=".Rewards" />
         <activity android:name=".TareasActivity" />
-        <activity android:name=".Noticias"></activity>
+        <activity android:name=".Noticias" />
+        <activity android:name=".politicaActivity"></activity>
     </application>
 
 </manifest>
