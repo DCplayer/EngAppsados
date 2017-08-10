@@ -34,4 +34,7 @@
     <string name="txt_menu_task">Ver lista de tareas</string>
     <string name="txt_menu_testGTApp">Probar Apps Guatemaltecas</string>
     <string name="txt_menu_rewards">Recompensas</string>
+    <string name="noticia">Noticia</string>
+    <string name="pruebaa">pruebaa</string>
+    <string name="leer_mas">Leer Mas</string>
 </resources>
