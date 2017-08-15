@@ -13,11 +13,18 @@ public class Noticias extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_noticias);
-        TextView textView =(TextView)findViewById(R.id.leerMas);
-        textView.setClickable(true);
-        textView.setMovementMethod(LinkMovementMethod.getInstance());
-        String text = "<a href='https://www.guatemala.com/noticias/tecnologia/ingenieros-guatemaltecos-que-han-destacado-a-nivel-internacional.html'> Leer mas </a>";
-        textView.setText(Html.fromHtml(text));
+        //noticia 1
+        TextView textView1 =(TextView)findViewById(R.id.leerMas);
+        textView1.setClickable(true);
+        textView1.setMovementMethod(LinkMovementMethod.getInstance());
+        String text1 = "<a href='https://www.guatemala.com/noticias/tecnologia/ingenieros-guatemaltecos-que-han-destacado-a-nivel-internacional.html'> Leer mas </a>";
+        textView1.setText(Html.fromHtml(text1));
+        //noticia 2
+        TextView textView2 = (TextView)findViewById(R.id.leerMas2);
+        textView2.setClickable(true);
+        textView2.setMovementMethod(LinkMovementMethod.getInstance());
+        String text2 = "<a href='https://www.guatemala.com/noticias/tecnologia/guatemaltecos-participaron-como-conferencistas-en-droidcon-2017.html'> Leer mas </a>";
+        textView2.setText(Html.fromHtml(text2));
     }
 
 }
