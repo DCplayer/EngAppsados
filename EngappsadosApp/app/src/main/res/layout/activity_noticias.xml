@@ -65,9 +65,7 @@
         android:id="@+id/noticia3"
         android:layout_width="183dp"
         android:layout_height="41dp"
-        android:layout_marginLeft="-76dp"
         android:layout_marginStart="19dp"
-        android:layout_marginTop="324dp"
         android:background="@color/dot_light_screen3"
         android:clickable="false"
         android:cursorVisible="false"
@@ -76,12 +74,14 @@
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:inputType="textMultiLine"
-        android:text="Guatemaltecos"
+        android:text="Estudiantes triunfan en Buenos Aires"
         android:textColor="@color/bg_screen1"
         android:visibility="visible"
-        app:layout_constraintLeft_toRightOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="LabelFor" />
+        tools:ignore="LabelFor"
+        app:layout_constraintLeft_toRightOf="@+id/noticiaImagen3"
+        android:layout_marginLeft="19dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/descripcion2" />
     <TextView
         android:id="@+id/leerMas"
         android:layout_width="wrap_content"
@@ -132,4 +132,35 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         android:layout_marginLeft="16dp"
         app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageView
+        android:id="@+id/noticiaImagen3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:srcCompat="@drawable/seguridad"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/descripcion2" />
+
+    <TextView
+        android:id="@+id/leerMas3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="78dp"
+        android:layout_marginTop="8dp"
+        android:text="Leer Mas"
+        app:layout_constraintLeft_toRightOf="@+id/noticiaImagen3"
+        app:layout_constraintTop_toBottomOf="@+id/noticia3" />
+
+    <TextView
+        android:id="@+id/descripcion3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Guatemaltecos en competencia de seguridad"
+        app:layout_constraintTop_toBottomOf="@+id/noticiaImagen3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

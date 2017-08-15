@@ -25,6 +25,12 @@ public class Noticias extends AppCompatActivity {
         textView2.setMovementMethod(LinkMovementMethod.getInstance());
         String text2 = "<a href='https://www.guatemala.com/noticias/tecnologia/guatemaltecos-participaron-como-conferencistas-en-droidcon-2017.html'> Leer mas </a>";
         textView2.setText(Html.fromHtml(text2));
+        // noticia 3
+        TextView textView3 = (TextView)findViewById(R.id.leerMas3);
+        textView3.setClickable(true);
+        textView3.setMovementMethod(LinkMovementMethod.getInstance());
+        String text3 = "<a href='https://www.guatemala.com/noticias/tecnologia/guatemaltecos-triunfan-en-competencia-de-seguridad-informatica-en-latinoamerica-2016.html'> Leer mas </a>";
+        textView3.setText(Html.fromHtml(text3));
     }
 
 }
