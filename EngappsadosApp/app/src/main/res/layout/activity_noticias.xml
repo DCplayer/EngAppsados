@@ -19,11 +19,10 @@
         app:srcCompat="@drawable/adrian_prueba" />
 
     <EditText
-        android:id="@+id/titleNews"
+        android:id="@+id/noticia2"
         android:layout_width="183dp"
         android:layout_height="41dp"
         android:layout_marginStart="19dp"
-        android:layout_marginTop="16dp"
         android:clickable="false"
         android:cursorVisible="false"
         android:focusable="false"
@@ -31,21 +30,137 @@
         android:ems="10"
         android:enabled="false"
         android:inputType="textMultiLine"
-        android:text="@string/noticia"
+        android:text="Conferencistas en Droidcon 2017"
         android:textColor="@color/bg_screen1"
         android:background="@color/dot_light_screen3"
         android:visibility="visible"
-        app:layout_constraintLeft_toRightOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="LabelFor" />
+        tools:ignore="LabelFor"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/descripcion1"
+        app:layout_constraintLeft_toRightOf="@+id/imageView"
+        android:layout_marginLeft="8dp" />
 
+    <EditText
+        android:id="@+id/noticia1"
+        android:layout_width="183dp"
+        android:layout_height="41dp"
+        android:layout_marginLeft="19dp"
+        android:layout_marginStart="19dp"
+        android:background="@color/dot_light_screen3"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:ems="10"
+        android:enabled="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:inputType="textMultiLine"
+        android:text="Guatemaltecos en Google"
+        android:textColor="@color/bg_screen1"
+        android:visibility="visible"
+        app:layout_constraintLeft_toRightOf="@+id/imageView3"
+        tools:ignore="LabelFor"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp" />
+    <EditText
+        android:id="@+id/noticia3"
+        android:layout_width="183dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="19dp"
+        android:background="@color/dot_light_screen3"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:ems="10"
+        android:enabled="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:inputType="textMultiLine"
+        android:text="Estudiantes triunfan en Buenos Aires"
+        android:textColor="@color/bg_screen1"
+        android:visibility="visible"
+        tools:ignore="LabelFor"
+        app:layout_constraintLeft_toRightOf="@+id/noticiaImagen3"
+        android:layout_marginLeft="19dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/descripcion2" />
     <TextView
         android:id="@+id/leerMas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
         android:text="@string/leer_mas"
-        app:layout_constraintTop_toBottomOf="@+id/titleNews"
+        android:layout_marginStart="78dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/noticia1"
         app:layout_constraintLeft_toRightOf="@+id/imageView3"
-        android:layout_marginStart="78dp" />
+        android:layout_marginLeft="8dp" />
+
+    <TextView
+        android:id="@+id/descripcion1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/genio_de_la_informatica_trabajando_en_android"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/conferencista"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/descripcion1" />
+
+    <TextView
+        android:id="@+id/leerMas2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="78dp"
+        android:layout_marginTop="14dp"
+        android:text="Leer mas"
+        app:layout_constraintLeft_toRightOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/noticia2" />
+
+    <TextView
+        android:id="@+id/descripcion2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Maldonado participa en conferencia en Santo Domingo"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageView
+        android:id="@+id/noticiaImagen3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:srcCompat="@drawable/seguridad"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/descripcion2" />
+
+    <TextView
+        android:id="@+id/leerMas3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="78dp"
+        android:layout_marginTop="8dp"
+        android:text="Leer Mas"
+        app:layout_constraintLeft_toRightOf="@+id/noticiaImagen3"
+        app:layout_constraintTop_toBottomOf="@+id/noticia3" />
+
+    <TextView
+        android:id="@+id/descripcion3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Guatemaltecos en competencia de seguridad"
+        app:layout_constraintTop_toBottomOf="@+id/noticiaImagen3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
