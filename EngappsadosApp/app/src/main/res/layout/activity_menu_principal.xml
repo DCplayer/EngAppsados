@@ -61,6 +61,14 @@
             android:layout_gravity="center"
             android:drawableTop="@drawable/ic_assignment_black_24dp"/>
 
+        <Button
+            android:id="@+id/buttonUsuario"
+            android:layout_width="149dp"
+            android:layout_height="wrap_content"
+            android:text="Usuarios"
+            android:layout_gravity="center"
+            android:drawableTop="@drawable/ic_person_black_24dp"/>
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

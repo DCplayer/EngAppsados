@@ -11,10 +11,22 @@ public class MenuPrincipalActivity extends AppCompatActivity {
     public Button buttonReward;
     public Button buttonNoticias;
     public Button buttonTareas;
+    public Button buttonPerfil;
+
     public void init(){
         buttonReward = (Button)findViewById(R.id.buttonReward);
-        buttonNoticias=(Button)findViewById(R.id.buttonNoticias);
-        buttonTareas=(Button)findViewById(R.id.buttonTareas);
+        buttonNoticias = (Button)findViewById(R.id.buttonNoticias);
+        buttonTareas = (Button)findViewById(R.id.buttonTareas);
+        buttonPerfil = (Button)findViewById(R.id.buttonUsuario);
+
+        buttonPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent userProfile = new Intent(MenuPrincipalActivity.this, userProfile.class);
+                startActivity(userProfile);
+            }
+        });
+
 
         buttonReward.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +51,6 @@ public class MenuPrincipalActivity extends AppCompatActivity {
             }
         });
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

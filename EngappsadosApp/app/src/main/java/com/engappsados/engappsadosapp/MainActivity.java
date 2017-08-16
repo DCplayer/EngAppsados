@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 Uri photoURL = user.getPhotoUrl();
                                 Log.d(TAG, "Url Obtenida"+photoURL);
                                 Log.d(TAG, "Obtuvo los datos del usuario");
-                                DatabaseReference current_user_db = mDatabaseRef.child(uid);
+                                DatabaseReference current_user_db = mDatabaseRef.child("usuarios").child(uid);
                                 Log.d(TAG, "curente_user_db" + current_user_db);
                                 current_user_db.child("username").setValue(nombre);
                                 current_user_db.child("e-mail").setValue(email);

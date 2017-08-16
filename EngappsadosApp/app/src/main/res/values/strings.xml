@@ -41,4 +41,9 @@
     <!-- pliticas de uso-->
     <string name="politics_title">Pooliticas y Terminos de uso</string>
     <string name="genio_de_la_informatica_trabajando_en_android">Genio de la informatica trabajando en Android</string>
+
+    <!-- Para ActicidadDelPerfilDeUsario-->
+    <string name="txtVNombre">[Name]</string>
+    <string name="txtVpuntos">[Puntos]</string>
+
 </resources>
