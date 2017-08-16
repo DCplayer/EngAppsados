@@ -45,6 +45,11 @@
     <!-- pliticas de uso-->
     <string name="politics_title">Pooliticas y Terminos de uso</string>
     <string name="genio_de_la_informatica_trabajando_en_android">Genio de la informatica trabajando en Android</string>
+
+    <!-- Para ActicidadDelPerfilDeUsario-->
+    <string name="txtVNombre">[Name]</string>
+    <string name="txtVpuntos">[Puntos]</string>
+
     <string name="title_activity_menu_tabbed">MenuTabbed</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
