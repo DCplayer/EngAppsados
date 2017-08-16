@@ -1,5 +1,7 @@
 package com.engappsados.engappsadosapp;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MenuTabbed extends AppCompatActivity {
@@ -56,18 +59,7 @@ public class MenuTabbed extends AppCompatActivity {
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_library_books_white_24dp);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_phone_android_white_24dp);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_assignment_white_24dp);
-        tabLayout.getTabAt(3).setIcon(R.drawable.ic_card_giftcard_white_24dp);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-    }
+        tabLayout.getTabAt(3).setIcon(R.drawable.ic_card_giftcard_white_24dp);    }
 
 
     @Override

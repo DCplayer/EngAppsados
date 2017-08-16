@@ -1,5 +1,6 @@
 package com.engappsados.engappsadosapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,11 +16,11 @@ public class Apps_Tab extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.apps_tab, container, false);
+        View rootView = inflater.inflate(R.layout.activity_tareas, container, false);
 
         return rootView;
-    }
 
+    }
 
 }
 
