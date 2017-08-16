@@ -37,6 +37,10 @@
     <string name="noticia">Noticia</string>
     <string name="pruebaa">pruebaa</string>
     <string name="leer_mas">Leer Mas</string>
+    <string name="tab_noticias">Aqui va la pantalla de noticias</string>
+    <string name="tab_encuestas">Aqui va la pantalla de encuestas</string>
+    <string name="tab_tienda">Aqui va la pantalla de tienda</string>
+    <string name="tab_appsa">Aqui va la pantalla de apps</string>
 
     <!-- pliticas de uso-->
     <string name="politics_title">Pooliticas y Terminos de uso</string>
@@ -46,4 +50,7 @@
     <string name="txtVNombre">[Name]</string>
     <string name="txtVpuntos">[Puntos]</string>
 
+    <string name="title_activity_menu_tabbed">MenuTabbed</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

@@ -204,7 +204,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void updateGUI(boolean result) {
         if (result) {
-            startActivity(new Intent(MainActivity.this, MenuPrincipalActivity.class));
+            startActivity(new Intent(MainActivity.this, MenuTabbed.class));
             finish();
         }
     }
