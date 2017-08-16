@@ -27,7 +27,8 @@ public class MenuPrincipalActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent noticias = new Intent(MenuPrincipalActivity.this, Noticias.class);
-                startActivity(noticias);
+                Intent nuevoUIn = new Intent(MenuPrincipalActivity.this, TareasActivity.class);
+                startActivity(nuevoUIn);
             }
         });
 
