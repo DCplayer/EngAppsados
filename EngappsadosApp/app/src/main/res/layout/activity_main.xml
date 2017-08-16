@@ -10,7 +10,7 @@
     android:layout_height="match_parent"
     android:layout_centerInParent="true"
     android:gravity="center_vertical"
-    android:background="@android:color/holo_blue_bright"
+    android:background="#607D8B"
     android:orientation="vertical">
 
     <TextView
