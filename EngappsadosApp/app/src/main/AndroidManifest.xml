@@ -26,7 +26,11 @@
         <activity android:name=".TareasActivity" />
         <activity android:name=".Noticias" />
         <activity android:name=".politicaActivity" />
-        <activity android:name=".userProfile"></activity>
+        <activity android:name=".userProfile" />
+        <activity
+            android:name=".MenuTabbed"
+            android:label="@string/title_activity_menu_tabbed"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
