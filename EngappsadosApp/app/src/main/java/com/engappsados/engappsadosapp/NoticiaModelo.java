@@ -9,13 +9,13 @@ public class NoticiaModelo {
     private String title;
     private String leermas;
     private String description;
-    private Drawable imagen;
+    private String imagen;
 
     public NoticiaModelo(){
         super();
     }
 
-    public NoticiaModelo(String title, String leermas, String description, Drawable imagen) {
+    public NoticiaModelo(String title, String leermas, String description, String imagen) {
         this.title = title;
         this.leermas = leermas;
         this.description = description;
@@ -46,11 +46,11 @@ public class NoticiaModelo {
         this.description = description;
     }
 
-    public Drawable getImagen() {
+    public String getImagen() {
         return imagen;
     }
 
-    public void setImagen(Drawable imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
     }
 }

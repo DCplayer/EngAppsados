@@ -5,14 +5,53 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
+
+
+import java.util.ArrayList;
 
 
 public class Noticias extends AppCompatActivity {
+        private ArrayList<NoticiaModelo> noticias = new ArrayList<>();
+    private int cantNoticias;
+    private DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_noticias);
+        mDatabaseRef.child("newsfeed").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+
+            public void fillNoticias (DataSnapshot dataSnapshot){
+                for (DataSnapshot child : dataSnapshot.getChildren()){
+                    String titulo = child.child("titulo").getValue().toString();
+                    String descripcion = child.child("descripcion").getValue().toString();
+                    String link = child.child("link").getValue().toString();
+                    String img = child.child("imagen").getValue().toString();
+                    NoticiaModelo unaNoticia = new NoticiaModelo(titulo, link, descripcion, img);
+                    noticias.add(unaNoticia);
+                }
+            }
+
+                                                                                      });
+    }
+
+        /*
         //noticia 1
         TextView textView1 =(TextView)findViewById(R.id.leerMas);
         textView1.setClickable(true);
@@ -31,6 +70,17 @@ public class Noticias extends AppCompatActivity {
         textView3.setMovementMethod(LinkMovementMethod.getInstance());
         String text3 = "<a href='https://www.guatemala.com/noticias/tecnologia/guatemaltecos-triunfan-en-competencia-de-seguridad-informatica-en-latinoamerica-2016.html'> Leer mas </a>";
         textView3.setText(Html.fromHtml(text3));
+    */
+
+
+
+
+
+    public void fillNoticias(){
+        for (int i=0;i<= cantNoticias; i++){
+
+        }
     }
+
 
 }
