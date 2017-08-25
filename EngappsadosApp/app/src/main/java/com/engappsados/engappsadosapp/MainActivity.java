@@ -3,6 +3,7 @@
 // Actividad principal del programa
 package com.engappsados.engappsadosapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.view.menu.MenuPresenter;
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private GoogleApiClient mGoogleApiClient;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private Button botonMenu;
+    //private Button botonMenu;
     private Button btn_politicas;
     private DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
 
@@ -62,8 +63,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_politicas.setOnClickListener(this);
 
 
-        botonMenu = (Button) findViewById(R.id.btnMenu);
-        botonMenu.setOnClickListener(this);
+        //botonMenu = (Button) findViewById(R.id.btnMenu);
+       // botonMenu.setOnClickListener(this);
         //configuracion del inicio de sesion
         GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -97,10 +98,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (R.id.btn_SignIn == v.getId()) {
             signInMethod();
         }
-        else if(R.id.btnMenu == v.getId()){
-            updateGUI(true);
+       // else if(R.id.btnMenu == v.getId()){
+        //    updateGUI(true);
 
-        }
+      //  }
         else if(R.id.btn_LinkContrato == v.getId()){
             startActivity(new Intent(MainActivity.this, politicaActivity.class));
         }
@@ -146,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
-
+        ProgressDialog.show(this, "Cargando", "por favor espera a que nuestros monos altamente calificados terminen...");
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
