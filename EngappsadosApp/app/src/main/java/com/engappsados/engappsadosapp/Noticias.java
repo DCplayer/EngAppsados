@@ -1,9 +1,13 @@
 package com.engappsados.engappsadosapp;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
+import android.view.View;
+import android.widget.GridLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,10 +30,13 @@ public class Noticias extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_noticias);
+
+
         mDatabaseRef.child("newsfeed").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
+                fillNoticias(dataSnapshot);
+                cargarNoticas();
             }
 
             @Override
@@ -47,6 +54,7 @@ public class Noticias extends AppCompatActivity {
                     noticias.add(unaNoticia);
                 }
             }
+
 
                                                                                       });
     }
@@ -72,12 +80,27 @@ public class Noticias extends AppCompatActivity {
         textView3.setText(Html.fromHtml(text3));
     */
 
+    public void cargarNoticas()
+    {
+     //   View relative = findViewById(R.id.text_list_view);
+        for (NoticiaModelo noticia : noticias){
+            TextView titulo = new TextView(this);
+            titulo.setText(noticia.getTitle());
+            titulo.setTextColor(5);
+            titulo.setLayoutParams(new ActionBar.LayoutParams(
+                    GridLayout.LayoutParams.FILL_PARENT,
+                    android.app.ActionBar.LayoutParams.WRAP_CONTENT
+            ));
 
-
-
-
-    public void fillNoticias(){
-        for (int i=0;i<= cantNoticias; i++){
+            TextView desc = new TextView(this);
+            desc.setText(noticia.getDescription());
+            desc.setLayoutParams(new ActionBar.LayoutParams(
+                    GridLayout.LayoutParams.FILL_PARENT,
+                    android.app.ActionBar.LayoutParams.WRAP_CONTENT
+            ));
+            TextView leerMas = new TextView(this);
+            String link = noticia.getLeermas();
+            leerMas.setText(Html.fromHtml(link));
 
         }
     }

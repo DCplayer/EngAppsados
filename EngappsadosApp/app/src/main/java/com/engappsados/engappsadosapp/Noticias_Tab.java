@@ -24,7 +24,7 @@ public class Noticias_Tab extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.activity_noticias, container, false);
-
+/*
         //noticia1
         TextView textView1 =(TextView)rootView.findViewById(R.id.leerMas);
         textView1.setClickable(true);
@@ -46,8 +46,10 @@ public class Noticias_Tab extends Fragment{
         String text3 = "<a href='https://www.guatemala.com/noticias/tecnologia/guatemaltecos-triunfan-en-competencia-de-seguridad-informatica-en-latinoamerica-2016.html'> Leer mas </a>";
         textView3.setText(Html.fromHtml(text3));
 
-
+*/
         return rootView;
+
     }
+
 
 }
