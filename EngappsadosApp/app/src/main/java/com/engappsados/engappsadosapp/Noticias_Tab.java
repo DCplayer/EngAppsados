@@ -49,7 +49,7 @@ public class Noticias_Tab extends Fragment {
             public void onCancelled(DatabaseError databaseError) {
 
             }
-
+//puede ser que tenga que hacer un onDataChange por todos
             public void fillNoticias(DataSnapshot dataSnapshot) {
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     String titulo = child.child("titulo").getValue().toString();
@@ -64,17 +64,19 @@ public class Noticias_Tab extends Fragment {
         });
 
         //noticia1
+
         TextView textView1 =(TextView)rootView.findViewById(R.id.leermas);
         textView1.setClickable(true);
         textView1.setMovementMethod(LinkMovementMethod.getInstance());
         String text1 = "<a href='https://www.guatemala.com/noticias/tecnologia/ingenieros-guatemaltecos-que-han-destacado-a-nivel-internacional.html'> Leer mas </a>";
         textView1.setText(Html.fromHtml(text1));
+        /*
         TextView title = (TextView)rootView.findViewById(R.id.category);
         title.setText(noticias.get(0).getTitle());
 
         TextView descripcion = (TextView)rootView.findViewById(R.id.texto);
         descripcion.setText(noticias.get(0).getDescription());
-
+*/
 /*
         //noticia2
         TextView textView2 =(TextView)rootView.findViewById(R.id.leerMas2);
