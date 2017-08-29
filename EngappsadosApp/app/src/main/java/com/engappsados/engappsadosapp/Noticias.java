@@ -24,12 +24,25 @@ public class Noticias extends AppCompatActivity {
         private ArrayList<NoticiaModelo> noticias = new ArrayList<>();
     private int cantNoticias;
     private DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
-
+    private String titulo1="fracaso";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_noticias);
+
+        mDatabaseRef.child("newsfeed").child("noticia1").child("titulo").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                titulo1 = dataSnapshot.getValue().toString();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
 
         mDatabaseRef.child("newsfeed").addListenerForSingleValueEvent(new ValueEventListener() {

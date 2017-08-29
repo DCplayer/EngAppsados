@@ -32,11 +32,24 @@ import java.util.ArrayList;
 public class Noticias_Tab extends Fragment {
     private ArrayList<NoticiaModelo> noticias = new ArrayList<>();
     //private int cantNoticias;
+    public String titulo1 = "fracaso";
     private DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.activity_noticias, container, false);
+        mDatabaseRef.child("newsfeed").child("noticia1").child("titulo").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                titulo1 = dataSnapshot.getValue().toString();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         mDatabaseRef.child("newsfeed").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -70,6 +83,8 @@ public class Noticias_Tab extends Fragment {
         textView1.setMovementMethod(LinkMovementMethod.getInstance());
         String text1 = "<a href='https://www.guatemala.com/noticias/tecnologia/ingenieros-guatemaltecos-que-han-destacado-a-nivel-internacional.html'> Leer mas </a>";
         textView1.setText(Html.fromHtml(text1));
+        TextView title = (TextView)rootView.findViewById(R.id.category);
+        title.setText(titulo1);
         /*
         TextView title = (TextView)rootView.findViewById(R.id.category);
         title.setText(noticias.get(0).getTitle());
@@ -130,6 +145,8 @@ public class Noticias_Tab extends Fragment {
 
 
         });
+
+
     }
 
         /*
