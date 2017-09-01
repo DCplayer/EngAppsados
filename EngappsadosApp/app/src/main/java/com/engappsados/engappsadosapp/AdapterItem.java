@@ -9,17 +9,21 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class AdapterItem extends BaseAdapter {
 
     protected Activity activity;
-    protected ArrayList<NoticiaModelo> items;
+    protected List<NoticiaModelo> items;
+    private Context mContext;
 
-    public AdapterItem (Activity activity, ArrayList<NoticiaModelo> items) {
-        this.activity = activity;
+    public AdapterItem(List<NoticiaModelo> items, Context mContext) {
         this.items = items;
+        this.mContext = mContext;
     }
 
     @Override
@@ -48,8 +52,22 @@ public class AdapterItem extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) { //(int position, View convertView, ViewGroup parent)
 
+        View v = View.inflate(mContext, R.layout.item_noticia,null);
+        TextView titulo = (TextView) v.findViewById(R.id.category);
+        TextView descripcion = (TextView) v.findViewById(R.id.textoD);
+        TextView link = (TextView) v.findViewById(R.id.link);
+        //poner textos correspondientes
+        titulo.setText(items.get(position).getTitle());
+        descripcion.setText(items.get(position).getDescription());
+        link.setText(items.get(position).getLeermas());
+
+        //guardar
+        //v.setTag(items.get(position).getId());
+
+
+        /*
         View v = convertView;
 
         if (convertView == null) {
@@ -67,9 +85,6 @@ public class AdapterItem extends BaseAdapter {
 
         TextView leermas = (TextView) v.findViewById(R.id.leermas);
         leermas.setText(dir.getLeermas());
-/*
-        ImageView imagen = (ImageView) v.findViewById(R.id.imageView4);
-        imagen.setImageDrawable(dir.getImagen());
 */
         return v;
     }

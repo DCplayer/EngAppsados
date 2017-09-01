@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -135,6 +136,15 @@ public class MenuTabbed extends AppCompatActivity {
             switch (position){
                 case 0:
                     Noticias_Tab tab1 = new Noticias_Tab();
+                    /*
+                    String tagNoticias = tab1.getTag();
+                    Fragment frg = null;
+                    frg = getSupportFragmentManager().findFragmentByTag("Your_Fragment_TAG");
+                    final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                    ft.detach(frg);
+                    ft.attach(frg);
+                    ft.commit();
+                    */
                     return tab1;
                 case 1:
                     Apps_Tab tab2 = new Apps_Tab();
