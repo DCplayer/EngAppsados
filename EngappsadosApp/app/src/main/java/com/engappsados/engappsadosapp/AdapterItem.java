@@ -1,16 +1,15 @@
+/*
+Adapter customizado para noticias tab
+ */
+
 package com.engappsados.engappsadosapp;
 
 import android.app.Activity;
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,40 +51,16 @@ public class AdapterItem extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) { //(int position, View convertView, ViewGroup parent)
+    public View getView(int position, View convertView, ViewGroup parent) {
 
-        View v = View.inflate(mContext, R.layout.item_noticia,null);
-        TextView titulo = (TextView) v.findViewById(R.id.category);
-        TextView descripcion = (TextView) v.findViewById(R.id.textoD);
-        TextView link = (TextView) v.findViewById(R.id.link);
+        View v = View.inflate(mContext, R.layout.item_noticia,null);    // inflar el contexto correspondiente
+        TextView titulo = (TextView) v.findViewById(R.id.category);     // buscar el titulo
+        TextView descripcion = (TextView) v.findViewById(R.id.textoD);  //buscar la descripcion de noticia
+        TextView link = (TextView) v.findViewById(R.id.link);           //buscar el texto para la noticia
         //poner textos correspondientes
-        titulo.setText(items.get(position).getTitle());
-        descripcion.setText(items.get(position).getDescription());
-        link.setText(items.get(position).getLeermas());
-
-        //guardar
-        //v.setTag(items.get(position).getId());
-
-
-        /*
-        View v = convertView;
-
-        if (convertView == null) {
-            LayoutInflater inf = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = inf.inflate(R.layout.activity_noticias, null);
-        }
-
-        NoticiaModelo dir = items.get(position);
-
-        TextView title = (TextView) v.findViewById(R.id.category);
-        title.setText(dir.getTitle());
-
-        TextView description = (TextView) v.findViewById(R.id.texto);
-        description.setText(dir.getDescription());
-
-        TextView leermas = (TextView) v.findViewById(R.id.leermas);
-        leermas.setText(dir.getLeermas());
-*/
+        titulo.setText(items.get(position).getTitle());                 //cambiar el titulo
+        descripcion.setText(items.get(position).getDescription());      //cambiar la descripcion
+        link.setText(items.get(position).getLeermas());                 //cambiar el link
         return v;
     }
 }

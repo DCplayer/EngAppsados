@@ -25,27 +25,23 @@ import java.util.List;
 
 public class Noticias_Tab extends Fragment implements View.OnClickListener{
     private List<NoticiaModelo> noticias;
-    private ListView lvNoticia;
-    private AdapterItem adapter;
-    //private int cantNoticias;
-    public String titulo1 = " ";
+    private ListView lvNoticia; //listview especial para noticias
+    private AdapterItem adapter; //adapter personalizado para noticias
     public DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
         final View rootView = inflater.inflate(R.layout.activity_noticias, container, false);
         lvNoticia = (ListView)rootView.findViewById(R.id.listview_noticia);
         noticias = new ArrayList<>();
 
-
         mDatabaseRef.child("newsfeed").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                fillNoticias(dataSnapshot);
-                adapter = new AdapterItem(noticias, rootView.getContext());
-                lvNoticia.setAdapter(adapter);
+                fillNoticias(dataSnapshot); //obtener noticias de la base de datos, y rellenar la lista de noticias
+                adapter = new AdapterItem(noticias, rootView.getContext()); //Llamar al adapter personalizado
+                lvNoticia.setAdapter(adapter); //llenar la listview con el adapter
 
             }
 
