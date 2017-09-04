@@ -103,9 +103,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
       //  }
         else if(R.id.btn_LinkContrato == v.getId()){
-           // startActivity(new Intent(MainActivity.this, politicaActivity.class));
-            //haciendo pruebas
-            startActivity(new Intent(MainActivity.this, GoogleForm_Activity.class));
+            startActivity(new Intent(MainActivity.this, politicaActivity.class));
+
         }
 
     }
@@ -149,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
-        ProgressDialog.show(this, "Cargando", "por favor espera a que nuestros monos altamente calificados terminen...");
+            ProgressDialog.show(this, "Cargando", "por favor espera a que nuestros monos altamente calificados terminen...");
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
