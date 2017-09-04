@@ -29,12 +29,12 @@ public class AppModelo {
         this.title = title;
     }
 
-    public String getLeermas() {
+    public String getLink() {
         return link;
     }
 
-    public void setLeermas(String leermas) {
-        this.link = leermas;
+    public void setLink(String link) {
+        this.link = link;
     }
 
     public String getDescription() {
