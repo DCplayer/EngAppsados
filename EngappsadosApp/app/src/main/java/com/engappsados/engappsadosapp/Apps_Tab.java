@@ -1,5 +1,6 @@
 package com.engappsados.engappsadosapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,72 +10,70 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.app.Fragment;
 import android.widget.Button;
+import android.widget.ListView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by sebas on 8/15/2017.
  */
 
-public class Apps_Tab extends Fragment implements View.OnClickListener{
-    private Button boton1;
-    private Button boton2;
-    private Button boton3;
-    private Button boton4;
+public class Apps_Tab extends Fragment implements View.OnClickListener {
+    private List<AppModelo> aplicaciones;
+    private ListView lvApps;
+    private AdapterAppItem adapter;
+
+    public DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.activity_tareas, container, false);
+        final View rootView = inflater.inflate(R.layout.apps_tab, container, false);
+        lvApps = (ListView) rootView.findViewById(R.id.listview_apps);
+        aplicaciones = new ArrayList<>();
+        final Context elContexto = rootView.getContext();
 
-        boton1 = (Button) rootView.findViewById(R.id.button2);
-        boton2 = (Button) rootView.findViewById(R.id.button3);
-        boton3 = (Button) rootView.findViewById(R.id.button4);
-        boton4 = (Button) rootView.findViewById(R.id.button5);
-
-        boton1.setOnClickListener(new View.OnClickListener() {
+        mDatabaseRef.child("aplicaciones").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onClick(View v){
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.renap.pub&hl=es"));
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                fillApps(dataSnapshot);
+                adapter = new AdapterAppItem(aplicaciones, rootView.getContext());
+                lvApps.setAdapter(adapter);
 
-                startActivity(intent);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+
+            //puede ser que tenga que hacer un onDataChange por todos
+            public void fillApps(DataSnapshot dataSnapshot) {
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                    String nombre = child.child("nombre").getValue().toString();
+                    String descripcion = child.child("descripcion").getValue().toString();
+                    String link = child.child("link").getValue().toString();
+                    String img = child.child("imagen").getValue().toString();
+                    AppModelo nuevaApp = new AppModelo(nombre, descripcion, img, link);
+                    nuevaApp.setTitle(nombre);
+                    if (!aplicaciones.contains(nuevaApp)) {
+                        aplicaciones.add(nuevaApp);
+                    }
+                }
             }
         });
-
-        boton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=gt.com.cs.mistermenu&hl=es"));
-
-                startActivity(intent);
-            }
-        });
-
-        boton3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=adn.guatemala.com&hl=es"));
-
-                startActivity(intent);
-            }
-        });
-
-        boton4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.muniguate.consulta&hl=es"));
-
-                startActivity(intent);
-            }
-        });
-
 
         return rootView;
-
     }
+
 
     @Override
     public void onClick(View v) {
