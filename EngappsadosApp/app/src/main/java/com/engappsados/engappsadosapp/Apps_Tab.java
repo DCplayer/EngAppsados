@@ -14,7 +14,7 @@ import android.widget.Button;
  * Created by sebas on 8/15/2017.
  */
 
-public class Apps_Tab extends Fragment{
+public class Apps_Tab extends Fragment implements View.OnClickListener{
     private Button boton1;
     private Button boton2;
     private Button boton3;
@@ -76,5 +76,9 @@ public class Apps_Tab extends Fragment{
 
     }
 
+    @Override
+    public void onClick(View v) {
+
+    }
 }
 
