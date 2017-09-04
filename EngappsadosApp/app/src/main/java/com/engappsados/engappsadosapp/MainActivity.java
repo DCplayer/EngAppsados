@@ -103,7 +103,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
       //  }
         else if(R.id.btn_LinkContrato == v.getId()){
-            startActivity(new Intent(MainActivity.this, politicaActivity.class));
+           // startActivity(new Intent(MainActivity.this, politicaActivity.class));
+            //haciendo pruebas
+            startActivity(new Intent(MainActivity.this, GoogleForm_Activity.class));
         }
 
     }
