@@ -22,28 +22,27 @@ import java.util.List;
  * Created by sebas on 8/15/2017.
  */
 
-public class Encuestas_tab extends Fragment implements View.OnClickListener{
+public class Encuestas_tab extends Fragment{
 
-    private List<NoticiaModelo> noticias;
-    private ListView lvNoticia; //listview especial para noticias
-    private AdapterItem adapter; //adapter personalizado para noticias
-    private SwipeRefreshLayout mSwipeRefreshLayout;
+    private List<EncuestasModel> encuestas;
+    private ListView lvEnuesta; //listview especial para encuesta
+    private AdapterPollItem adapter; //adapter personalizado para noticias
+    //private SwipeRefreshLayout mSwipeRefreshLayout;
     public DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.encuestas_tab, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        final View rootView = inflater.inflate(R.layout.encuestas_tab, container, false);
 
-        lvNoticia = (ListView)rootView.findViewById(R.id.listview_noticia);
-        noticias = new ArrayList<>();
-        mDatabaseRef.child("newsfeed").addListenerForSingleValueEvent(new ValueEventListener() {
+        lvEnuesta = (ListView)rootView.findViewById(R.id.listview_polls);
+        encuestas = new ArrayList<>();
+        mDatabaseRef.child("encuestas").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                fillNoticias(dataSnapshot); //obtener noticias de la base de datos, y rellenar la lista de noticias
-                adapter = new AdapterItem(noticias, rootView.getContext()); //Llamar al adapter personalizado
-                lvNoticia.setAdapter(adapter); //llenar la listview con el adapter
+                fillEncuesta(dataSnapshot); //obtener noticias de la base de datos, y rellenar la lista de noticias
+                adapter = new AdapterPollItem(encuestas, rootView.getContext()); //Llamar al adapter personalizado
+                lvEnuesta.setAdapter(adapter); //llenar la listview con el adapter
 
             }
 
@@ -53,22 +52,20 @@ public class Encuestas_tab extends Fragment implements View.OnClickListener{
             }
 
             //puede ser que tenga que hacer un onDataChange por todos
-            public void fillNoticias(DataSnapshot dataSnapshot) {
+            public void fillEncuesta(DataSnapshot dataSnapshot) {
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     String titulo = child.child("titulo").getValue().toString();
                     String descripcion = child.child("descripcion").getValue().toString();
                     String link = child.child("link").getValue().toString();
-                    String img = child.child("imagen").getValue().toString();
-                    NoticiaModelo unaNoticia = new NoticiaModelo(titulo, link, descripcion, img);
-                    unaNoticia.setTitle(titulo);
-                    if (!noticias.contains(unaNoticia)) {
-                        noticias.add(unaNoticia);
+                    //String img = child.child("imagen").getValue().toString();
+                    EncuestasModel unaEncuesta = new EncuestasModel(titulo, link, descripcion);
+                    //unaEncuesta.setTitle(titulo);
+                    if (!encuestas.contains(unaEncuesta)) {
+                        encuestas.add(unaEncuesta);
                     }
                 }
             }
         });
-
-
 
         return rootView;
     }

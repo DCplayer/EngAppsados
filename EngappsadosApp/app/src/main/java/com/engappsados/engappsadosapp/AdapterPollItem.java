@@ -6,11 +6,14 @@ package com.engappsados.engappsadosapp;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
@@ -18,14 +21,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class AdapterPollItem {
+public class AdapterPollItem extends BaseAdapter {
 
 
     protected Activity activity;
-    protected List<NoticiaModelo> items;
+    protected List<EncuestasModel> items;
     private Context mContext;
 
-    public AdapterItem(List<NoticiaModelo> items, Context mContext) {
+    public AdapterPollItem(List<EncuestasModel> items, Context mContext) {
         this.items = items;
         this.mContext = mContext;
     }
@@ -39,7 +42,7 @@ public class AdapterPollItem {
         items.clear();
     }
 
-    public void addAll(ArrayList<NoticiaModelo> category) {
+    public void addAll(ArrayList<EncuestasModel> category) {
         for (int i = 0; i < category.size(); i++) {
             items.add(category.get(i));
         }
@@ -56,36 +59,27 @@ public class AdapterPollItem {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
-        View v = View.inflate(mContext, R.layout.item_noticia,null);    // inflar el contexto correspondiente
-        TextView titulo = (TextView) v.findViewById(R.id.category);     // buscar el titulo
-        TextView descripcion = (TextView) v.findViewById(R.id.textoD);  //buscar la descripcion de noticia
-        TextView link = (TextView) v.findViewById(R.id.link);           //buscar el texto para la noticia
-        link.setClickable(true);
-        link.setMovementMethod(LinkMovementMethod.getInstance());
-        ImageView foto = (ImageView) v.findViewById(R.id.imagen);
-        /*
-        String imgUrl = dataSnapshot.getValue().toString();
-                Picasso.with(userProfile.this).load(imgUrl).transform(new CircleTransform()).into(user_Picture);
-         */
+        View v = View.inflate(mContext, R.layout.item_poll,null);    // inflar el contexto correspondiente
+        TextView titulo = (TextView) v.findViewById(R.id.poll_Title);     // buscar el titulo
+        TextView descripcion = (TextView) v.findViewById(R.id.poll_Desc);  //buscar la descripcion de noticia
+        Button boton = (Button) v.findViewById(R.id.poll_btnDoPoll);
+
 
         //poner textos correspondientes
         titulo.setText(items.get(position).getTitle());                 //cambiar el titulo
         descripcion.setText(items.get(position).getDescription());      //cambiar la descripcion
-        String url = items.get(position).getLeermas();
-        String imgUrl = items.get(position).getImagen();
-        Picasso.with(mContext).load(imgUrl).resize(250,200).into(foto);
-        /*
-        String text = "<a href='http://www.google.com'> Google </a>";
-         */
-        String text = "<a href='"+url+ "'> Leer mas </a>";
-        link.setText(Html.fromHtml(text));
+        boton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Uri uri = Uri.parse(items.get(position).getLink());
+                //
+                //Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                //mContext.startActivity(intent);
+            }
+        });
 
-        /*
-        String link = noticia.getLeermas();
-            leerMas.setText(Html.fromHtml(link));
-         */
         return v;
     }
 
