@@ -67,6 +67,8 @@ public class Apps_Tab extends Fragment implements View.OnClickListener {
                     if (!aplicaciones.contains(nuevaApp)) {
                         aplicaciones.add(nuevaApp);
                     }
+
+
                 }
             }
         });

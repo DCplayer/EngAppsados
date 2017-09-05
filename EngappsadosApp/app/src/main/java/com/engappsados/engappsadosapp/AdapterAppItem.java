@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -84,23 +86,26 @@ public class AdapterAppItem extends BaseAdapter {
         View v = View.inflate(mContext, R.layout.item_apps,null);
         TextView titulo = (TextView) v.findViewById(R.id.textView11);
         TextView descripcion = (TextView) v.findViewById(R.id.textView12);
-        Button boton = (Button) v.findViewById(R.id.button6);
         ImageView imagen = (ImageView) v.findViewById(R.id.imageView2);
         //poner textos correspondientes
         titulo.setText(items.get(position).getTitle());
         descripcion.setText(items.get(position).getDescription());
 
-        bitmap = getBitmapFromURL(items.get(position).getImagen());
-        imagen.setImageBitmap(bitmap);
+        //Colocar la imagen de la aplicacion
+        String imgUrl = items.get(position).getImagen();
+        /*Colocando dimensiones de la imagen del app y la forma que puede tener*/
+        Picasso.with(mContext).load(imgUrl).transform(new RoundedTransformation(280,10)).into(imagen);
 
 
-        boton.setOnClickListener(new View.OnClickListener() {
+        //Diseñar la entrada de cada boton
+
+        Button botoneta = (Button) v.findViewById(R.id.button6);
+        botoneta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(items.get(position).getLink()));
-
-                activity.startActivity(intent);
+                Uri uri = Uri.parse(items.get(position).getLink());
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                mContext.startActivity(intent);
             }
         });
         return v;
