@@ -1,16 +1,30 @@
 package com.engappsados.engappsadosapp;
 
-import android.annotation.TargetApi;
-import android.os.Build;
+import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.webkit.WebResourceRequest;
+import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 
 public class GoogleForm_Activity extends AppCompatActivity {
     //atributos
     WebView mWebView;
+    // para base de datos
+    public FirebaseUser usuario = FirebaseAuth.getInstance().getCurrentUser();
+    public DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
+    public String uID = usuario.getUid();
+    public int puntos;
+    public boolean booleano = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,40 +33,37 @@ public class GoogleForm_Activity extends AppCompatActivity {
         //crea vista de la web view
         mWebView = (WebView) findViewById(R.id.navegadorEncuesta);
         mWebView.getSettings().setJavaScriptEnabled(true);
-        mWebView.setWebViewClient(new MyBrowser());
-        // Enable responsive layout
+
+        mDatabaseRef.child("usuarios").child(uID).child("Puntos").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                puntos = Integer.parseInt(dataSnapshot.getValue().toString());
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+
+        mWebView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                if (url.endsWith("formResponse") && booleano){
+                    //actualizar los puntos del usuario
+                    puntos = puntos + 10;
+                    mDatabaseRef.child("usuarios").child(uID).child("Puntos").setValue(puntos);
+                    booleano = false;
+                    //cierra la webView
+                    finish();
+                }
+            }
+        });
+        // habilita la posibilidad de que la pagian sea responsive
         mWebView.getSettings().setUseWideViewPort(true);
-        // Zoom out if the content width is greater than the width of the viewport
-        mWebView.getSettings().setLoadWithOverviewMode(true);
         // Cargar la URL
         mWebView.loadUrl("https://goo.gl/forms/aXF96L1lFr8EhPUD3");
-        
+
     }
-
-// Manages the behavior when URLs are loaded
-    private class MyBrowser extends WebViewClient {
-        @SuppressWarnings("deprecation")
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-
-            if (url.contains("formResponse")){
-                view.loadUrl(url);
-                finish();  // close activity
-            }
-            else{
-                view.loadUrl(url);
-            }
-            //formResponse
-            return true;
-        }
-/*
-        @TargetApi(Build.VERSION_CODES.M)
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-            view.loadUrl(request.getUrl().toString());
-            return true;
-        }
-        */
-    }
-
 }
+

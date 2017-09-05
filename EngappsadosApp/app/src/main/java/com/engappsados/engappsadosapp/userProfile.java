@@ -24,9 +24,10 @@ public class userProfile extends AppCompatActivity {
     private ImageView user_Picture;
     private TextView user_Name;
     private TextView user_Points;
+    //para base de datps
     private FirebaseUser usuario = FirebaseAuth.getInstance().getCurrentUser();
     private DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
-    private int points;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
