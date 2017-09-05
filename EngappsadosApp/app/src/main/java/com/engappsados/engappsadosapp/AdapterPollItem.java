@@ -1,8 +1,8 @@
-/*
-Adapter customizado para noticias tab
- */
-
 package com.engappsados.engappsadosapp;
+
+/**
+ * Created by Jonnathan on 05/09/2017.
+ */
 
 import android.app.Activity;
 import android.content.Context;
@@ -18,7 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class AdapterItem extends BaseAdapter {
+public class AdapterPollItem {
+
 
     protected Activity activity;
     protected List<NoticiaModelo> items;
@@ -87,4 +88,5 @@ public class AdapterItem extends BaseAdapter {
          */
         return v;
     }
+
 }
