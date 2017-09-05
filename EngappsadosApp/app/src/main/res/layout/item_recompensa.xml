@@ -7,5 +7,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/reward_name"
-        android:text="Name"/>
+        android:text="Nombre_recompensa"
+        android:textSize="20dp"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/reward_price"
+        android:text="500 pts"
+        android:textSize="10dp"
+        android:textColor="#000000"/>
+
 </LinearLayout>
