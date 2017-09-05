@@ -8,12 +8,14 @@ public class Recompensa {
     private int id;
     private String name;
     private int price;
+    private String descripcion;
     private String imagen;
 
-    public Recompensa(int id, String name, int price, String imagen) {
+    public Recompensa(int id, String name, int price, String descripcion, String imagen) {
         this.id = id;
         this.name = name;
         this.price = price;
+        this.descripcion = descripcion;
         this.imagen = imagen;
     }
 
@@ -47,5 +49,13 @@ public class Recompensa {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

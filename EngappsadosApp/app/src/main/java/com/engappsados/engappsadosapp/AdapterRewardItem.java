@@ -42,8 +42,12 @@ public class AdapterRewardItem extends BaseAdapter {
         View v = View.inflate(mContext, R.layout.item_recompensa, null);
         TextView rewardName = (TextView)v.findViewById(R.id.reward_name);
         TextView rewardPrice = (TextView)v.findViewById(R.id.reward_price);
+        TextView rewardDescription = (TextView)v.findViewById(R.id.reward_description);
         rewardName.setText(recompensaList.get(position).getName());
         rewardPrice.setText(String.valueOf(recompensaList.get(position).getPrice()));
+        rewardDescription.setText(recompensaList.get(position).getDescripcion());
+
+        v.setTag(recompensaList.get(position).getId());
         return null;
     }
 }
