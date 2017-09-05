@@ -5,6 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -13,11 +17,17 @@ import android.view.ViewGroup;
 
 public class Tienda_tab extends Fragment{
 
+    private ListView lvRewards;
+    private AdapterRewardItem adapter;
+    private List<Recompensa> recompensaList;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.tienda_tab, container, false);
+        final View rootView = inflater.inflate(R.layout.tienda_tab, container, false);
 
+        lvRewards = (ListView)rootView.findViewById(R.id.listview_tienda);
+        recompensaList = new ArrayList<>();
         return rootView;
     }
 
