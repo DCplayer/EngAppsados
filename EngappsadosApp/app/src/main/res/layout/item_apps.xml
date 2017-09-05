@@ -21,6 +21,7 @@
         android:layout_width="170dp"
         android:layout_height="179dp"
         android:text="Descripción "
+        android:gravity="left"
         tools:layout_editor_absoluteX="16dp"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/textView11"
@@ -30,11 +31,16 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="146dp"
-        android:layout_height="137dp"
+        android:layout_width="154dp"
+        android:layout_height="142dp"
         app:srcCompat="@drawable/logoo"
-        tools:layout_editor_absoluteY="86dp"
-        tools:layout_editor_absoluteX="211dp" />
+        android:layout_marginTop="11dp"
+        app:layout_constraintTop_toBottomOf="@+id/button6"
+        app:layout_constraintLeft_toRightOf="@+id/textView12"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.714" />
 
     <Button
         android:id="@+id/button6"
@@ -43,8 +49,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:text="Saborear "
-        app:layout_constraintHorizontal_bias="0.929"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="31dp" />
 </android.support.constraint.ConstraintLayout>
