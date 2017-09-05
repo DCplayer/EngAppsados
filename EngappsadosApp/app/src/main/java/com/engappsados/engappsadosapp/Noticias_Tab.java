@@ -4,9 +4,10 @@ package com.engappsados.engappsadosapp;
  * Created by sebas on 8/15/2017.
  */
 
-
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,10 +24,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Noticias_Tab extends Fragment implements View.OnClickListener{
+public class Noticias_Tab extends Fragment implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener {
     private List<NoticiaModelo> noticias;
     private ListView lvNoticia; //listview especial para noticias
     private AdapterItem adapter; //adapter personalizado para noticias
+    private SwipeRefreshLayout mSwipeRefreshLayout;
     public DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,6 +37,24 @@ public class Noticias_Tab extends Fragment implements View.OnClickListener{
         final View rootView = inflater.inflate(R.layout.activity_noticias, container, false);
         lvNoticia = (ListView)rootView.findViewById(R.id.listview_noticia);
         noticias = new ArrayList<>();
+        //mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeLayout);
+       // mSwipeRefreshLayout.setOnRefreshListener(this);
+
+        //mSwipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorPrimary), getResources().getColor(R.color.colorPrimaryDark), getResources().getColor(R.color.colorAccent));
+        /*
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh(){
+                mSwipeRefreshLayout.setRefreshing(true);
+                ( new Handler()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mSwipeRefreshLayout.setRefreshing(false);
+                    }
+                },3000);
+            }
+                                                 });
+        */
 
         mDatabaseRef.child("newsfeed").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -73,5 +93,10 @@ public class Noticias_Tab extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
 
+    }
+
+    @Override
+    public void onRefresh() {
+        Log.d("working","now");
     }
 }
