@@ -22,7 +22,7 @@ import java.util.List;
  * Created by sebas on 8/15/2017.
  */
 
-public class Tienda_tab extends Fragment implements View.OnClickListener{
+public class Tienda_tab extends Fragment{
 
     private ListView lvRewards;
     private AdapterRewardItem adapter;
@@ -58,7 +58,7 @@ public class Tienda_tab extends Fragment implements View.OnClickListener{
                     String precio = child.child("precio").getValue().toString();
                     String img = child.child("imagen").getValue().toString();
                     Recompensa unaRecompensa = new Recompensa(titulo, precio, img);
-                    unaRecompensa.setName(titulo);
+                    //unaRecompensa.setName(titulo);
                     if(!recompensaList.contains(unaRecompensa)){
                         recompensaList.add(unaRecompensa);
                     }
@@ -67,10 +67,5 @@ public class Tienda_tab extends Fragment implements View.OnClickListener{
         });
         return rootView;
     }
-    
 
-    @Override
-    public void onClick(View v) {
-
-    }
 }

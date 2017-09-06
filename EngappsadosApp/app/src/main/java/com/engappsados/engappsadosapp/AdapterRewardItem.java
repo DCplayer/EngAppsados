@@ -47,7 +47,7 @@ public class AdapterRewardItem extends BaseAdapter {
         TextView titulo = (TextView)v.findViewById(R.id.reward_name);
         TextView precio = (TextView)v.findViewById(R.id.reward_price);
         ImageView imagen = (ImageView) v.findViewById(R.id.reward_Image);
-        Button boton = (Button) v.findViewById(R.id.reward_btnCanjear);
+        //Button boton = (Button) v.findViewById(R.id.reward_btnCanjear);
 
         titulo.setText(recompensaList.get(position).getName());
         precio.setText(String.valueOf(recompensaList.get(position).getPrice()));
@@ -57,6 +57,6 @@ public class AdapterRewardItem extends BaseAdapter {
         /*Colocando dimensiones de la imagen del app y la forma que puede tener*/
         Picasso.with(mContext).load(imgUrl).transform(new RoundedTransformation(280,10)).into(imagen);
 
-        return null;
+        return v;
     }
 }

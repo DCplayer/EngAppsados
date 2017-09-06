@@ -84,10 +84,6 @@ public class AdapterPollItem extends BaseAdapter {
                 intent.putExtras(b); //Put your id to your next Intent
                 mContext.startActivity(intent);
 
-                //Uri uri = Uri.parse(items.get(position).getLink());
-
-                //Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                //mContext.startActivity(intent);
             }
         });
 

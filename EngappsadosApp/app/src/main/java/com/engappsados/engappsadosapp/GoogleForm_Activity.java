@@ -44,6 +44,7 @@ public class GoogleForm_Activity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+
         Bundle b = getIntent().getExtras();
         if(b != null)
             url = b.getString("link");
