@@ -22,7 +22,7 @@ import java.util.List;
  * Created by sebas on 8/15/2017.
  */
 
-public class Tienda_tab extends Fragment implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener{
+public class Tienda_tab extends Fragment implements View.OnClickListener{
 
     private ListView lvRewards;
     private AdapterRewardItem adapter;
@@ -67,12 +67,7 @@ public class Tienda_tab extends Fragment implements View.OnClickListener, SwipeR
         });
         return rootView;
     }
-
-
-    @Override
-    public void onRefresh() {
-
-    }
+    
 
     @Override
     public void onClick(View v) {

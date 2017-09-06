@@ -1,29 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/reward_name"
-        android:text="Nombre_recompensa"
-        android:textSize="20dp"
-        android:textColor="#000000"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/reward_description"
-        android:text="Aqui va la descripcion"
-        android:textSize="10dp"
-        android:textColor="#000000"/>
+    <ImageView
+        android:id="@+id/reward_Image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_assignment_black_24dp"
+        android:layout_margin="5dp"/>
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/reward_price"
-        android:text="500 pts"
-        android:textSize="10dp"
-        android:textColor="#000000"/>
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/reward_name"
+                android:layout_margin="2dp"
+                style="@style/Base.TextAppearance.AppCompat.Title"
+                android:text="Nombre"
+                android:textColor="#000000"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:id="@+id/reward_price"
+                android:text="500 pts"
+                android:textSize="10dp"
+                android:textColor="#000000"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/reward_btnCanjear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="@string/reward_btn"
+            android:layout_margin="10dp"/>
+
+
+    </LinearLayout>
+
 
 </LinearLayout>

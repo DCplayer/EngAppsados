@@ -4,7 +4,11 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -15,7 +19,7 @@ import java.util.List;
 public class AdapterRewardItem extends BaseAdapter {
 
     private Context mContext;
-    private List<Recompensa> recompensaList;
+    protected List<Recompensa> recompensaList;
 
     public AdapterRewardItem(Context mContext, List<Recompensa> recompensaList) {
         this.mContext = mContext;
@@ -40,14 +44,19 @@ public class AdapterRewardItem extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View v = View.inflate(mContext, R.layout.item_recompensa, null);
-        TextView rewardName = (TextView)v.findViewById(R.id.reward_name);
-        TextView rewardPrice = (TextView)v.findViewById(R.id.reward_price);
-        TextView rewardDescription = (TextView)v.findViewById(R.id.reward_description);
-        rewardName.setText(recompensaList.get(position).getName());
-        rewardPrice.setText(String.valueOf(recompensaList.get(position).getPrice()));
-        rewardDescription.setText(recompensaList.get(position).getDescripcion());
+        TextView titulo = (TextView)v.findViewById(R.id.reward_name);
+        TextView precio = (TextView)v.findViewById(R.id.reward_price);
+        ImageView imagen = (ImageView) v.findViewById(R.id.reward_Image);
+        Button boton = (Button) v.findViewById(R.id.reward_btnCanjear);
 
-        v.setTag(recompensaList.get(position).getId());
+        titulo.setText(recompensaList.get(position).getName());
+        precio.setText(String.valueOf(recompensaList.get(position).getPrice()));
+
+        //Colocar la imagen de la aplicacion
+        String imgUrl = recompensaList.get(position).getImagen();
+        /*Colocando dimensiones de la imagen del app y la forma que puede tener*/
+        Picasso.with(mContext).load(imgUrl).transform(new RoundedTransformation(280,10)).into(imagen);
+
         return null;
     }
 }

@@ -56,6 +56,7 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="descripcion">Descripcion</string>
     <string name="poll_btn">Hacer encuesta! </string>
+    <string name="reward_btn">Canjear</string>
     <string name="title">Title</string>
     <string name="Desc">Description</string>
 </resources>

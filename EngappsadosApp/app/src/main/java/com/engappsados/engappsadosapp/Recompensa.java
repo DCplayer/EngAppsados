@@ -5,24 +5,14 @@ package com.engappsados.engappsadosapp;
  */
 
 public class Recompensa {
-    private int id;
     private String name;
     private String price;
-    private String descripcion;
     private String imagen;
 
     public Recompensa( String name, String price, String imagen) {
         this.name = name;
         this.price = price;
         this.imagen = imagen;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -49,11 +39,4 @@ public class Recompensa {
         this.imagen = imagen;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
 }
