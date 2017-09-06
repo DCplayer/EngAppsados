@@ -32,8 +32,8 @@ public class Tienda_tab extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View rootView = inflater.inflate(R.layout.tienda_tab, container, false);
 
+        final View rootView = inflater.inflate(R.layout.tienda_tab, container, false);
         lvRewards = (ListView)rootView.findViewById(R.id.listview_tienda);
         recompensaList = new ArrayList<>();
 
@@ -67,7 +67,7 @@ public class Tienda_tab extends Fragment implements View.OnClickListener{
         });
         return rootView;
     }
-    
+
 
     @Override
     public void onClick(View v) {

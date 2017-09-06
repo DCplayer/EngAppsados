@@ -12,47 +12,34 @@
         android:src="@drawable/ic_assignment_black_24dp"
         android:layout_margin="5dp"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:weightSum="1">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/reward_name"
                 android:layout_margin="2dp"
                 style="@style/Base.TextAppearance.AppCompat.Title"
-                android:text="Nombre"
-                android:textColor="#000000"/>
+                android:text="Nombre" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="end"
                 android:id="@+id/reward_price"
-                android:text="500 pts"
-                android:textSize="10dp"
-                android:textColor="#000000"/>
+                android:text="500 pts" />
 
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/reward_btnCanjear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:text="@string/reward_btn"
-            android:layout_margin="10dp"/>
-
+            <Button
+                android:id="@+id/reward_btnCanjear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="@string/reward_btn"
+                android:layout_margin="10dp"/>
 
     </LinearLayout>
-
 
 </LinearLayout>

@@ -1,13 +1,23 @@
 package com.engappsados.engappsadosapp;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -20,6 +30,10 @@ public class AdapterRewardItem extends BaseAdapter {
 
     private Context mContext;
     protected List<Recompensa> recompensaList;
+    public FirebaseUser usuario = FirebaseAuth.getInstance().getCurrentUser();
+    public DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
+    public String uID = usuario.getUid();
+    public int puntos;
 
     public AdapterRewardItem(Context mContext, List<Recompensa> recompensaList) {
         this.mContext = mContext;
@@ -42,7 +56,7 @@ public class AdapterRewardItem extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         View v = View.inflate(mContext, R.layout.item_recompensa, null);
         TextView titulo = (TextView)v.findViewById(R.id.reward_name);
         TextView precio = (TextView)v.findViewById(R.id.reward_price);
@@ -50,13 +64,44 @@ public class AdapterRewardItem extends BaseAdapter {
         Button boton = (Button) v.findViewById(R.id.reward_btnCanjear);
 
         titulo.setText(recompensaList.get(position).getName());
-        precio.setText(String.valueOf(recompensaList.get(position).getPrice()));
+        precio.setText(recompensaList.get(position).getPrice() + " pts.");
 
         //Colocar la imagen de la aplicacion
         String imgUrl = recompensaList.get(position).getImagen();
         /*Colocando dimensiones de la imagen del app y la forma que puede tener*/
-        Picasso.with(mContext).load(imgUrl).transform(new RoundedTransformation(280,10)).into(imagen);
+        Picasso.with(mContext).load(imgUrl).into(imagen);
 
-        return null;
+        mDatabaseRef.child("usuarios").child(uID).child("Puntos").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                puntos = Integer.parseInt(dataSnapshot.getValue().toString());
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+        boton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                int costo = Integer.parseInt(recompensaList.get(position).getPrice());
+                int duracion=Toast.LENGTH_LONG;
+                String texto="";
+                if(puntos>=costo){
+                    puntos = puntos - costo;
+                    mDatabaseRef.child("usuarios").child(uID).child("Puntos").setValue(puntos);
+                    texto="Has canjeado " + costo + " puntos por " + recompensaList.get(position).getName() +".";
+                    Toast.makeText(mContext, texto, duracion).show();
+                }else{
+                    texto="No tienes puntos suficientes para esta recompensa.";
+                    Toast.makeText(mContext, texto, duracion).show();
+                }
+
+
+            }
+        });
+
+
+        return v;
     }
 }
