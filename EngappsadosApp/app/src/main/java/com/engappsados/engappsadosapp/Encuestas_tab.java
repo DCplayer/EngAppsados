@@ -57,8 +57,8 @@ public class Encuestas_tab extends Fragment{
                     String titulo = child.child("titulo").getValue().toString();
                     String descripcion = child.child("descripcion").getValue().toString();
                     String link = child.child("link").getValue().toString();
-                    //String img = child.child("imagen").getValue().toString();
-                    EncuestasModel unaEncuesta = new EncuestasModel(titulo, link, descripcion);
+                    String puntos = child.child("puntos").getValue().toString();
+                    EncuestasModel unaEncuesta = new EncuestasModel(titulo, link, descripcion, puntos);
                     //unaEncuesta.setTitle(titulo);
                     if (!encuestas.contains(unaEncuesta)) {
                         encuestas.add(unaEncuesta);

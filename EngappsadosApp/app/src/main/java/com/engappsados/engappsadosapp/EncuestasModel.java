@@ -9,17 +9,19 @@ public class EncuestasModel {
         private String title;
         private String link;
         private String description;
-        //private String imagen;
+
+
+    private String puntos;
 
         public EncuestasModel(){
             super();
         }
 
-        public EncuestasModel(String title, String link, String description) {
+        public EncuestasModel(String title, String link, String description, String puntos) {
             this.title = title;
             this.link = link;
             this.description = description;
-            //this.imagen = imagen;
+            this.puntos = puntos;
         }
 
         public String getTitle() {
@@ -45,16 +47,14 @@ public class EncuestasModel {
         public void setDescription(String description) {
             this.description = description;
         }
-/*
-        public String getImagen() {
-            return imagen;
-        }
 
-        public void setImagen(String imagen) {
-            this.imagen = imagen;
-        }
+    public String getPuntos() {
+        return puntos;
     }
 
-*/
+    public void setPuntos(String puntos) {
+        this.puntos = puntos;
+    }
+
 
 }

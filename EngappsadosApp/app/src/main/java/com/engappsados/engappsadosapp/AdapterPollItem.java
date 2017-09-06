@@ -67,12 +67,14 @@ public class AdapterPollItem extends BaseAdapter {
         View v = View.inflate(mContext, R.layout.item_poll,null);    // inflar el contexto correspondiente
         TextView titulo = (TextView) v.findViewById(R.id.poll_Title);     // buscar el titulo
         TextView descripcion = (TextView) v.findViewById(R.id.poll_Desc);  //buscar la descripcion de noticia
+        TextView puntos = (TextView) v.findViewById(R.id.poll_points);
         Button boton = (Button) v.findViewById(R.id.poll_btnDoPoll);
 
 
         //poner textos correspondientes
         titulo.setText(items.get(position).getTitle());                 //cambiar el titulo
         descripcion.setText(items.get(position).getDescription());      //cambiar la descripcion
+        puntos.setText(items.get(position).getPuntos()+" pts.");
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -80,7 +82,7 @@ public class AdapterPollItem extends BaseAdapter {
                 Intent intent = new Intent(mContext, GoogleForm_Activity.class);
                 Bundle b = new Bundle();
                 b.putString("link",items.get(position).getLink()); //Your id
-                b.putString("test","Test"); //Your id
+                b.putString("puntos",items.get(position).getPuntos()); //Your id
                 intent.putExtras(b); //Put your id to your next Intent
                 mContext.startActivity(intent);
 

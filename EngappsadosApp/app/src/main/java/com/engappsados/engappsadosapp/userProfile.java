@@ -1,9 +1,12 @@
 package com.engappsados.engappsadosapp;
 
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,6 +27,8 @@ public class userProfile extends AppCompatActivity {
     private ImageView user_Picture;
     private TextView user_Name;
     private TextView user_Points;
+    private TextView user_mail;
+    private Button btnOut;
     //para base de datps
     private FirebaseUser usuario = FirebaseAuth.getInstance().getCurrentUser();
     private DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
@@ -36,6 +41,14 @@ public class userProfile extends AppCompatActivity {
         user_Picture = (ImageView) findViewById(R.id.ImgV_usePicture);
         user_Name = (TextView) findViewById(R.id.nombreDeUsuario);
         user_Points = (TextView) findViewById(R.id.puntosDeUsuario);
+        user_mail = (TextView) findViewById(R.id.user_txemail);
+        btnOut  = (Button) findViewById(R.id.user_btnSignOut);
+        btnOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                //aca se debe de cerrar sesion
+            }
+        });
 
 
         String uID = usuario.getUid();
@@ -83,6 +96,20 @@ public class userProfile extends AppCompatActivity {
             }
         });
 
+
+        mDatabaseRef.child("usuarios").child(uID).child("e-mail").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String email = dataSnapshot.getValue().toString();
+                user_mail.setText(email);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.e("Hey", "Failed to read user name.", error.toException());
+            }
+        });
 
     }
 

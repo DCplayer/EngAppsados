@@ -24,6 +24,7 @@ public class GoogleForm_Activity extends AppCompatActivity {
     public DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
     public String uID = usuario.getUid();
     public int puntos;
+    public int puntosASumar;
     public boolean booleano = true;
     public String url= "";
 
@@ -48,6 +49,7 @@ public class GoogleForm_Activity extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         if(b != null)
             url = b.getString("link");
+            puntosASumar = Integer.parseInt(b.getString("puntos"));
 
         mWebView.setWebViewClient(new WebViewClient() {
             @Override
@@ -55,7 +57,7 @@ public class GoogleForm_Activity extends AppCompatActivity {
                 super.onPageFinished(view, url);
                 if (url.endsWith("formResponse") && booleano){
                     //actualizar los puntos del usuario
-                    puntos = puntos + 10;
+                    puntos = puntos + puntosASumar;
                     mDatabaseRef.child("usuarios").child(uID).child("Puntos").setValue(puntos);
                     booleano = false;
                     //cierra la webView
