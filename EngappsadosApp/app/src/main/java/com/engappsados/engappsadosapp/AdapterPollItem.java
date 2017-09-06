@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
@@ -16,6 +17,8 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +62,7 @@ public class AdapterPollItem extends BaseAdapter {
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, final View convertView, ViewGroup parent) {
 
         View v = View.inflate(mContext, R.layout.item_poll,null);    // inflar el contexto correspondiente
         TextView titulo = (TextView) v.findViewById(R.id.poll_Title);     // buscar el titulo
@@ -73,8 +76,16 @@ public class AdapterPollItem extends BaseAdapter {
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Uri uri = Uri.parse(items.get(position).getLink());
-                //
+
+                Intent intent = new Intent(mContext, GoogleForm_Activity.class);
+                Bundle b = new Bundle();
+                b.putString("link",items.get(position).getLink()); //Your id
+                b.putString("test","Test"); //Your id
+                intent.putExtras(b); //Put your id to your next Intent
+                mContext.startActivity(intent);
+
+                //Uri uri = Uri.parse(items.get(position).getLink());
+
                 //Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 //mContext.startActivity(intent);
             }

@@ -25,6 +25,7 @@ public class GoogleForm_Activity extends AppCompatActivity {
     public String uID = usuario.getUid();
     public int puntos;
     public boolean booleano = true;
+    public String url= "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,9 @@ public class GoogleForm_Activity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-
+        Bundle b = getIntent().getExtras();
+        if(b != null)
+            url = b.getString("link");
 
         mWebView.setWebViewClient(new WebViewClient() {
             @Override
@@ -62,7 +65,7 @@ public class GoogleForm_Activity extends AppCompatActivity {
         // habilita la posibilidad de que la pagian sea responsive
         mWebView.getSettings().setUseWideViewPort(true);
         // Cargar la URL
-        mWebView.loadUrl("https://goo.gl/forms/aXF96L1lFr8EhPUD3");
+        mWebView.loadUrl(url);
 
     }
 }
