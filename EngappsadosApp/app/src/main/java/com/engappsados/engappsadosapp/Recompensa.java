@@ -7,15 +7,13 @@ package com.engappsados.engappsadosapp;
 public class Recompensa {
     private int id;
     private String name;
-    private int price;
+    private String price;
     private String descripcion;
     private String imagen;
 
-    public Recompensa(int id, String name, int price, String descripcion, String imagen) {
-        this.id = id;
+    public Recompensa( String name, String price, String imagen) {
         this.name = name;
         this.price = price;
-        this.descripcion = descripcion;
         this.imagen = imagen;
     }
 
@@ -35,11 +33,11 @@ public class Recompensa {
         this.name = name;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
