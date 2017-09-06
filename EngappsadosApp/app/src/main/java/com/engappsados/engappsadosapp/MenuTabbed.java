@@ -78,9 +78,9 @@ public class MenuTabbed extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()){
             case R.id.action_User:
-                //startActivity(new Intent(this, userProfile.class));
+                startActivity(new Intent(this, userProfile.class));
                 //haciendo pruebas
-                startActivity(new Intent(MenuTabbed.this, GoogleForm_Activity.class));
+                //startActivity(new Intent(MenuTabbed.this, GoogleForm_Activity.class));
                 return true;
         }
 
