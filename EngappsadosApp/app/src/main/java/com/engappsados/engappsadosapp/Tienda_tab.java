@@ -32,8 +32,8 @@ public class Tienda_tab extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View rootView = inflater.inflate(R.layout.tienda_tab, container, false);
 
+        final View rootView = inflater.inflate(R.layout.tienda_tab, container, false);
         lvRewards = (ListView)rootView.findViewById(R.id.listview_tienda);
         recompensaList = new ArrayList<>();
 

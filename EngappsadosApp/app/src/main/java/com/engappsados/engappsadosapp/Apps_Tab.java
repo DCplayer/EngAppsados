@@ -26,10 +26,10 @@ import java.util.List;
  */
 
 public class Apps_Tab extends Fragment implements View.OnClickListener {
-    private List<AppModelo> aplicaciones;
+
     private ListView lvApps;
     private AdapterAppItem adapter;
-
+    private List<AppModelo> aplicaciones;
     public DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
 
     @Override
