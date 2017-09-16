@@ -28,7 +28,7 @@ public class Noticias_Tab extends Fragment implements View.OnClickListener, Swip
     private List<NoticiaModelo> noticias;
     private ListView lvNoticia; //listview especial para noticias
     private AdapterItem adapter; //adapter personalizado para noticias
-    private SwipeRefreshLayout mSwipeRefreshLayout;
+    private SwipeRefreshLayout mSwipeRefreshLayout; //se espera realizar despues
     public DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
