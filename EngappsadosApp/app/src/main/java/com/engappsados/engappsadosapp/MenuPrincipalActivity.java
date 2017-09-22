@@ -28,13 +28,7 @@ public class MenuPrincipalActivity extends AppCompatActivity {
         });
 
 
-        buttonReward.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                Intent recompensa = new Intent(MenuPrincipalActivity.this, Rewards.class);
-                startActivity(recompensa);
-            }
-        });
+
         buttonNoticias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
