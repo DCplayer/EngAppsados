@@ -43,11 +43,11 @@
     <string name="tab_appsa">Aqui va la pantalla de apps</string>
     <string name="action_User">Mi Perfil</string>
 
-    <!-- pliticas de uso-->
-    <string name="politics_title">Pooliticas y Terminos de uso</string>
+    <!-- politicas de uso-->
+    <string name="politics_title">Políticas y Términos de uso</string>
     <string name="genio_de_la_informatica_trabajando_en_android">Genio de la informatica trabajando en Android</string>
 
-    <!-- Para ActicidadDelPerfilDeUsario-->
+    <!-- Para ActicidadDelPerfilDeUsuario-->
     <string name="txtVNombre">[Name]</string>
     <string name="txtVpuntos">[Puntos]</string>
 
