@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -86,19 +87,34 @@ public class AdapterAppItem extends BaseAdapter {
         View v = View.inflate(mContext, R.layout.item_apps,null);
         TextView titulo = (TextView) v.findViewById(R.id.textView11);
         TextView descripcion = (TextView) v.findViewById(R.id.textView12);
+        final String developer = items.get(position).getDesarrollador();
+        TextView verDev = (TextView) v.findViewById(R.id.verDev);
+        verDev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent intento = new Intent(mContext, Developer.class);
+                    intento.putExtra("DEV", developer);
+                    mContext.startActivity(intento);
+                } catch (Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+        });
         ImageView imagen = (ImageView) v.findViewById(R.id.imageView2);
         //poner textos correspondientes
         titulo.setText(items.get(position).getTitle());
         descripcion.setText(items.get(position).getDescription());
 
+
         //Colocar la imagen de la aplicacion
         String imgUrl = items.get(position).getImagen();
         /*Colocando dimensiones de la imagen del app y la forma que puede tener*/
         Picasso.with(mContext).load(imgUrl).transform(new RoundedTransformation(280,10)).into(imagen);
+// ver info del desarrollador
 
 
         //Diseñar la entrada de cada boton
-
         Button botoneta = (Button) v.findViewById(R.id.button6);
         botoneta.setOnClickListener(new View.OnClickListener() {
             @Override

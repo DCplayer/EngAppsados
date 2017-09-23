@@ -55,14 +55,14 @@ public class Apps_Tab extends Fragment implements View.OnClickListener {
 
             }
 
-            //puede ser que tenga que hacer un onDataChange por todos
             public void fillApps(DataSnapshot dataSnapshot) {
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     String nombre = child.child("nombre").getValue().toString();
                     String descripcion = child.child("descripcion").getValue().toString();
                     String link = child.child("link").getValue().toString();
                     String img = child.child("imagen").getValue().toString();
-                    AppModelo nuevaApp = new AppModelo(nombre, descripcion, img, link);
+                    String dev = child.child("dev").getValue().toString();
+                    AppModelo nuevaApp = new AppModelo(nombre, descripcion, img, link, dev);
                     nuevaApp.setTitle(nombre);
                     if (!aplicaciones.contains(nuevaApp)) {
                         aplicaciones.add(nuevaApp);

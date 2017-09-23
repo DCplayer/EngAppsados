@@ -52,6 +52,13 @@
             android:layout_margin="5dp"
             android:layout_gravity="center"
             android:src="@drawable/ic_assignment_black_24dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/verDev"
+            android:text="Ver info del desarrollador"
+            android:clickable="true"
+            />
     </LinearLayout>
 
 </LinearLayout>

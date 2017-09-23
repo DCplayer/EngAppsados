@@ -59,4 +59,5 @@
     <string name="reward_btn">Canjear</string>
     <string name="title">Title</string>
     <string name="Desc">Description</string>
+    <string name="title_activity_developer_activity">Developer_activity</string>
 </resources>
