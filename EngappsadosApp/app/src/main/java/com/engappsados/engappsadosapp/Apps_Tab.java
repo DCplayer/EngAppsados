@@ -62,7 +62,8 @@ public class Apps_Tab extends Fragment implements View.OnClickListener {
                     String link = child.child("link").getValue().toString();
                     String img = child.child("imagen").getValue().toString();
                     String dev = child.child("dev").getValue().toString();
-                    AppModelo nuevaApp = new AppModelo(nombre, descripcion, img, link, dev);
+                    String paquete = child.child("Package").getValue().toString();
+                    AppModelo nuevaApp = new AppModelo(nombre, descripcion, img, link, dev, paquete);
                     nuevaApp.setTitle(nombre);
                     if (!aplicaciones.contains(nuevaApp)) {
                         aplicaciones.add(nuevaApp);

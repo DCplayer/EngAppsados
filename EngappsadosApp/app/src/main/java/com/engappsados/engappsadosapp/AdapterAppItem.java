@@ -1,8 +1,9 @@
 package com.engappsados.engappsadosapp;
-
+import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -13,12 +14,12 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.squareup.picasso.Picasso;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +33,8 @@ public class AdapterAppItem extends BaseAdapter {
     protected List<AppModelo> items;
     private Context mContext;
     private Bitmap bitmap;
+    boolean isAppInstalled;
+    String paquete;
 
     public AdapterAppItem(List<AppModelo> items, Context mContext) {
         this.items = items;
@@ -101,6 +104,11 @@ public class AdapterAppItem extends BaseAdapter {
                 }
             }
         });
+
+        //verifica si la app esta installada
+        paquete = items.get(position).getPackageName();
+        isAppInstalled = appInstalledOrNot(paquete);
+
         ImageView imagen = (ImageView) v.findViewById(R.id.imageView2);
         //poner textos correspondientes
         titulo.setText(items.get(position).getTitle());
@@ -111,19 +119,39 @@ public class AdapterAppItem extends BaseAdapter {
         String imgUrl = items.get(position).getImagen();
         /*Colocando dimensiones de la imagen del app y la forma que puede tener*/
         Picasso.with(mContext).load(imgUrl).transform(new RoundedTransformation(280,10)).into(imagen);
-// ver info del desarrollador
 
 
         //Diseñar la entrada de cada boton
         Button botoneta = (Button) v.findViewById(R.id.button6);
+        //cambia el texto si el paquete esta instalado
+        if(isAppInstalled) {
+            botoneta.setText("Abrir");
+        }
+
         botoneta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Uri uri = Uri.parse(items.get(position).getLink());
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                mContext.startActivity(intent);
+                if (appInstalledOrNot(items.get(position).getPackageName())){
+                    Intent LaunchIntent = mContext.getPackageManager()
+                            .getLaunchIntentForPackage(items.get(position).getPackageName());
+                    mContext.startActivity(LaunchIntent);
+                }
+                else {
+                    Uri uri = Uri.parse(items.get(position).getLink());
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    mContext.startActivity(intent);
+                }
             }
         });
         return v;
+    }
+    private boolean appInstalledOrNot(String uri) {
+        final PackageManager pm = mContext.getPackageManager();
+        try {
+            pm.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+        }
+        return false;
     }
 }

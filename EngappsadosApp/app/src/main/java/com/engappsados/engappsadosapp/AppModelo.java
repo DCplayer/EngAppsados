@@ -10,17 +10,19 @@ public class AppModelo {
     private String description;
     private String imagen;
     private String desarrollador;
+    private String packageName;
 
     public AppModelo(){
         super();
     }
 
-    public AppModelo(String title, String description, String imagen, String link, String desarrollador) {
+    public AppModelo(String title, String description, String imagen, String link, String desarrollador, String paguete) {
         this.title = title;
         this.link = link;
         this.description = description;
         this.imagen = imagen;
         this.desarrollador = desarrollador;
+        this.packageName = paguete;
     }
 
     public String getTitle() {
@@ -61,5 +63,13 @@ public class AppModelo {
 
     public void setDesarrollador(String desarrollador) {
         this.desarrollador = desarrollador;
+    }
+
+    public String getPackageName() {
+        return packageName;
+    }
+
+    public void setPackageName(String packageName) {
+        this.packageName = packageName;
     }
 }
