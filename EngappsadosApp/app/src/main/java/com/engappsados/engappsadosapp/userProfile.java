@@ -2,6 +2,8 @@ package com.engappsados.engappsadosapp;
 
 
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,13 +15,14 @@ import android.widget.TextView;
 // para fireBase
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+
+import java.util.List;
 
 
 public class userProfile extends AppCompatActivity {
@@ -47,8 +50,17 @@ public class userProfile extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 //aca se debe de cerrar sesion
+                //temporal para obtenr el paquete de las aplicaciones
+                final PackageManager pm = getPackageManager();
+                List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
+
+                for (ApplicationInfo packageInfo : packages) {
+                    Log.d("Packages", "" + packageInfo.packageName);
+                }
+
             }
         });
+
 
 
         String uID = usuario.getUid();
