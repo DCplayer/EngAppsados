@@ -2,9 +2,6 @@ package com.engappsados.engappsadosapp;
 
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
@@ -49,7 +46,7 @@ public class userProfile extends AppCompatActivity {
         setContentView(R.layout.activity_user_profile);
         Bundle b = getIntent().getExtras();
         if(b != null)
-            array = b.getStringArrayList("arreglo");
+            array = b.getStringArrayList("aplicaciones");
         user_Picture = (ImageView) findViewById(R.id.ImgV_usePicture);
         user_Name = (TextView) findViewById(R.id.nombreDeUsuario);
         user_Points = (TextView) findViewById(R.id.puntosDeUsuario);
