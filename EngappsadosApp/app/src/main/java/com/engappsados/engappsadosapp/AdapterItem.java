@@ -74,7 +74,7 @@ public class AdapterItem extends BaseAdapter {
         descripcion.setText(items.get(position).getDescription());      //cambiar la descripcion
         String url = items.get(position).getLeermas();
         String imgUrl = items.get(position).getImagen();
-        Picasso.with(mContext).load(imgUrl).resize(250,200).into(foto);
+        Picasso.with(mContext).load(imgUrl).into(foto);
         /*
         String text = "<a href='http://www.google.com'> Google </a>";
          */
