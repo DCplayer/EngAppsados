@@ -35,6 +35,8 @@ public class userProfile extends AppCompatActivity {
     private Button btnOut;
     public Context mContext ;
     ArrayList<String> array = new ArrayList<>();
+    ArrayList<Integer> arrayt = new ArrayList<>();
+    ArrayList<Integer> arrayp = new ArrayList<>();
     //para base de datps
     private FirebaseUser usuario = FirebaseAuth.getInstance().getCurrentUser();
     private DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
@@ -47,6 +49,8 @@ public class userProfile extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         if(b != null)
             array = b.getStringArrayList("aplicaciones");
+            arrayt= b.getIntegerArrayList("tiempo");
+            arrayp= b.getIntegerArrayList("puntos");
         user_Picture = (ImageView) findViewById(R.id.ImgV_usePicture);
         user_Name = (TextView) findViewById(R.id.nombreDeUsuario);
         user_Points = (TextView) findViewById(R.id.puntosDeUsuario);
@@ -60,7 +64,7 @@ public class userProfile extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Ustats u = new Ustats();
-                u.getTimeUstats(mContext, array);
+                u.getTimeUstats(mContext, array, arrayt,arrayp);
 
                 //aca se debe de cerrar sesion
                 /*temporal para obtenr el paquete de las aplicaciones

@@ -2,6 +2,7 @@ package com.engappsados.engappsadosapp;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.annotation.IntegerRes;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -83,14 +84,19 @@ public class MenuTabbed extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         ArrayList<String> a = new ArrayList<>();
-        for (AppModelo as:
-             tab2.aplicaciones) {
+        ArrayList<Integer> p = new ArrayList<>();
+        ArrayList<Integer> t = new ArrayList<>();
+        for (AppModelo as: tab2.aplicaciones) {
             a.add(as.getPackageName());
+            p.add(as.getPuntos());
+            t.add(as.getTiempoenMins());
         }
 
         Intent intent = new Intent(this, userProfile.class);
         Bundle b = new Bundle();
         b.putStringArrayList("aplicaciones",a); //Your id
+        b.putIntegerArrayList("tiempo",t);
+        b.putIntegerArrayList("puntos",p);
         intent.putExtras(b); //Put your id to your next Intent
         this.startActivity(intent);
         switch (item.getItemId()){

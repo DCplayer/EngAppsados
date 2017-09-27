@@ -63,7 +63,9 @@ public class Apps_Tab extends Fragment implements View.OnClickListener {
                     String img = child.child("imagen").getValue().toString();
                     String dev = child.child("dev").getValue().toString();
                     String paquete = child.child("Package").getValue().toString();
-                    AppModelo nuevaApp = new AppModelo(nombre, descripcion, img, link, dev, paquete);
+                    int time = Integer.parseInt(child.child("tiempo").getValue().toString());
+                    int points = Integer.parseInt(child.child("puntos").getValue().toString());
+                    AppModelo nuevaApp = new AppModelo(nombre, descripcion, img, link, dev, paquete, time, points);
                     nuevaApp.setTitle(nombre);
                     if (!aplicaciones.contains(nuevaApp)) {
                         aplicaciones.add(nuevaApp);

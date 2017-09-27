@@ -11,18 +11,22 @@ public class AppModelo {
     private String imagen;
     private String desarrollador;
     private String packageName;
+    private int tiempoenMins;
+    private int puntos;
 
     public AppModelo(){
         super();
     }
 
-    public AppModelo(String title, String description, String imagen, String link, String desarrollador, String paguete) {
+    public AppModelo(String title, String description, String imagen, String link, String desarrollador, String paguete, int tiempoenMins, int puntos) {
         this.title = title;
         this.link = link;
         this.description = description;
         this.imagen = imagen;
         this.desarrollador = desarrollador;
         this.packageName = paguete;
+        this.tiempoenMins = tiempoenMins;
+        this.puntos = puntos;
     }
 
     public String getTitle() {
@@ -71,5 +75,21 @@ public class AppModelo {
 
     public void setPackageName(String packageName) {
         this.packageName = packageName;
+    }
+
+    public int getTiempoenMins() {
+        return tiempoenMins;
+    }
+
+    public void setTiempoenMins(int tiempoenMins) {
+        this.tiempoenMins = tiempoenMins;
+    }
+
+    public int getPuntos() {
+        return puntos;
+    }
+
+    public void setPuntos(int puntos) {
+        this.puntos = puntos;
     }
 }
