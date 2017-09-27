@@ -55,19 +55,15 @@ public class Ustats {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void getTimeUstats(Context mContext, ArrayList<String> array, ArrayList<Integer> arrayt, ArrayList<Integer> arrayp){
         // UsageStats usageStats;
-        Log.i("BAC", "ENTRE ACA");
         String PackageName = "Nothing" ;
 
         long TimeInforground = 500 ;
 
         int minutes=500,seconds=500,hours=500 ;
-        Log.i("BAC", "ENTRE ACA2");
         UsageStatsManager mUsageStatsManager = (UsageStatsManager)mContext.getSystemService(Context.USAGE_STATS_SERVICE);
-        Log.i("BAC", "ENTRE ACA3");
         long time = System.currentTimeMillis();
 
         List<UsageStats> stats = mUsageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_DAILY, time - 1000*10, time);
-        Log.i("BAC", "ENTRE ACA4");
         if(stats != null) {
             SortedMap<Long, UsageStats> mySortedMap = new TreeMap<Long, UsageStats>();
             for (UsageStats usageStats : stats) {
@@ -87,6 +83,11 @@ public class Ustats {
                         //toast que muestra la informacion
                         int duracion=Toast.LENGTH_LONG;
                         String texto = "Has obtenido " + arrayp.get(indice) + " puntos por haber estado " + arrayt.get(indice) +" o mas minutos usando: "+ array.get(indice);
+                        Toast.makeText(mContext, texto, duracion).show();
+                    }else{
+                        //toast que muestra la informacion
+                        int duracion=Toast.LENGTH_LONG;
+                        String texto = "No se pueden otorgar puntos aún.";
                         Toast.makeText(mContext, texto, duracion).show();
                     }
 
