@@ -35,7 +35,7 @@ public class userProfile extends AppCompatActivity {
     private TextView user_Points;
     private TextView user_mail;
     private Button btnOut;
-    public Context mContext;
+    public Context mContext ;
     //para base de datps
     private FirebaseUser usuario = FirebaseAuth.getInstance().getCurrentUser();
     private DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
@@ -50,6 +50,9 @@ public class userProfile extends AppCompatActivity {
         user_Points = (TextView) findViewById(R.id.puntosDeUsuario);
         user_mail = (TextView) findViewById(R.id.user_txemail);
         btnOut  = (Button) findViewById(R.id.user_btnSignOut);
+        //se obtien el contexto de la aplicacion
+        mContext = this.getApplicationContext();
+
         btnOut.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
