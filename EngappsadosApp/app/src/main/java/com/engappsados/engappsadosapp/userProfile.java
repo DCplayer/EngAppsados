@@ -1,9 +1,12 @@
 package com.engappsados.engappsadosapp;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,6 +35,7 @@ public class userProfile extends AppCompatActivity {
     private TextView user_Points;
     private TextView user_mail;
     private Button btnOut;
+    public Context mContext;
     //para base de datps
     private FirebaseUser usuario = FirebaseAuth.getInstance().getCurrentUser();
     private DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
@@ -47,8 +51,12 @@ public class userProfile extends AppCompatActivity {
         user_mail = (TextView) findViewById(R.id.user_txemail);
         btnOut  = (Button) findViewById(R.id.user_btnSignOut);
         btnOut.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v){
+                Ustats u = new Ustats();
+                u.getTimeUstats(mContext);
+
                 //aca se debe de cerrar sesion
                 //temporal para obtenr el paquete de las aplicaciones
                 final PackageManager pm = getPackageManager();

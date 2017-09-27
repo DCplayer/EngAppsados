@@ -4,8 +4,10 @@
 package com.engappsados.engappsadosapp;
 
 import android.app.ProgressDialog;
+import android.app.usage.UsageStats;
 import android.content.Intent;
 import android.net.Uri;
+import android.provider.Settings;
 import android.support.v7.view.menu.MenuPresenter;
 import android.util.Log;
 import android.support.annotation.IntDef;
@@ -53,6 +55,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Check if permission enabled
+        Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+        startActivity(intent);
         Prof_secction = (LinearLayout) findViewById(R.id.SingIn_panel);
         SignIn = (SignInButton) findViewById(R.id.btn_SignIn);
         SignIn.setOnClickListener(this);

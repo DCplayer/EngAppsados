@@ -1,4 +1,7 @@
 package com.engappsados.engappsadosapp;
+import android.app.AppOpsManager;
+import android.app.usage.*;
+import android.app.usage.UsageStats;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -22,6 +25,8 @@ import java.net.URL;
 import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 /**
  * Created by Diego Castaneda on 03/09/2017.
@@ -154,4 +159,6 @@ public class AdapterAppItem extends BaseAdapter {
         }
         return false;
     }
+
+
 }
