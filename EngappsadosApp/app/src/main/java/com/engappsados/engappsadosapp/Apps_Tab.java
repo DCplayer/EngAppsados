@@ -29,7 +29,7 @@ public class Apps_Tab extends Fragment implements View.OnClickListener {
 
     private ListView lvApps;
     private AdapterAppItem adapter;
-    private List<AppModelo> aplicaciones;
+    public List<AppModelo> aplicaciones;
     public DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
 
     @Override

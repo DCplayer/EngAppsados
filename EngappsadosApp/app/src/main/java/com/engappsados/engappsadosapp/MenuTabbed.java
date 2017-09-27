@@ -23,7 +23,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class MenuTabbed extends AppCompatActivity {
+    Noticias_Tab tab1;
+    Apps_Tab tab2;
+    Encuestas_tab tab3;
+    Tienda_tab tab4;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -76,9 +82,20 @@ public class MenuTabbed extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+        ArrayList<String> a = new ArrayList<>();
+        for (AppModelo as:
+             tab2.aplicaciones) {
+            a.add(as.getPackageName());
+        }
+
+        Intent intent = new Intent(this, userProfile.class);
+        Bundle b = new Bundle();
+        b.putStringArrayList("aplicaciones",a); //Your id
+        intent.putExtras(b); //Put your id to your next Intent
+        this.startActivity(intent);
         switch (item.getItemId()){
             case R.id.action_User:
-                startActivity(new Intent(this, userProfile.class));
+                //startActivity(new Intent(this, userProfile.class));
                 //haciendo pruebas
                 //startActivity(new Intent(MenuTabbed.this, GoogleForm_Activity.class));
                 return true;
@@ -137,25 +154,16 @@ public class MenuTabbed extends AppCompatActivity {
             // returning the current tabs
             switch (position){
                 case 0:
-                    Noticias_Tab tab1 = new Noticias_Tab();
-                    /*
-                    String tagNoticias = tab1.getTag();
-                    Fragment frg = null;
-                    frg = getSupportFragmentManager().findFragmentByTag("Your_Fragment_TAG");
-                    final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                    ft.detach(frg);
-                    ft.attach(frg);
-                    ft.commit();
-                    */
+                    tab1 = new Noticias_Tab();
                     return tab1;
                 case 1:
-                    Apps_Tab tab2 = new Apps_Tab();
+                    tab2 = new Apps_Tab();
                     return tab2;
                 case 2:
-                    Encuestas_tab tab3 = new Encuestas_tab();
+                    tab3 = new Encuestas_tab();
                     return tab3;
                 case 3:
-                    Tienda_tab tab4 = new Tienda_tab();
+                    tab4 = new Tienda_tab();
                     return tab4;
                 default:
                     return null;

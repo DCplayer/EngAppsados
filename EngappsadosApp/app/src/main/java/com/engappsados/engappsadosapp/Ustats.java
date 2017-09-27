@@ -10,6 +10,7 @@ import android.support.annotation.RequiresApi;
 import android.util.Log;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.SortedMap;
@@ -24,7 +25,7 @@ public class Ustats {
     public Ustats() {
     }
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public void getTimeUstats(Context mContext){
+    public void getTimeUstats(Context mContext, ArrayList<String> array){
         // UsageStats usageStats;
         Log.i("BAC", "ENTRE ACA");
         String PackageName = "Nothing" ;
@@ -42,19 +43,19 @@ public class Ustats {
         if(stats != null) {
             SortedMap<Long, UsageStats> mySortedMap = new TreeMap<Long, UsageStats>();
             for (UsageStats usageStats : stats) {
+                if(array.contains(usageStats.getPackageName())){
+                    TimeInforground = usageStats.getTotalTimeInForeground();
 
-                TimeInforground = usageStats.getTotalTimeInForeground();
+                    PackageName = usageStats.getPackageName();
 
-                PackageName = usageStats.getPackageName();
+                    minutes = (int) ((TimeInforground / (1000 * 60)) % 60);
 
-                minutes = (int) ((TimeInforground / (1000 * 60)) % 60);
+                    seconds = (int) (TimeInforground / 1000) % 60;
 
-                seconds = (int) (TimeInforground / 1000) % 60;
+                    hours = (int) ((TimeInforground / (1000 * 60 * 60)) % 24);
 
-                hours = (int) ((TimeInforground / (1000 * 60 * 60)) % 24);
-
-                Log.i("BAC", "PackageName is" + PackageName + "Time is: " + hours + "h" + ":" + minutes + "m" + seconds + "s");
-
+                    Log.i("BAC", "PackageName is" + PackageName + "Time is: " + hours + "h" + ":" + minutes + "m" + seconds + "s");
+                }
             }
         }
     }

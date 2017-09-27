@@ -25,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -36,6 +37,7 @@ public class userProfile extends AppCompatActivity {
     private TextView user_mail;
     private Button btnOut;
     public Context mContext ;
+    ArrayList<String> array = new ArrayList<>();
     //para base de datps
     private FirebaseUser usuario = FirebaseAuth.getInstance().getCurrentUser();
     private DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
@@ -45,6 +47,9 @@ public class userProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+        Bundle b = getIntent().getExtras();
+        if(b != null)
+            array = b.getStringArrayList("arreglo");
         user_Picture = (ImageView) findViewById(R.id.ImgV_usePicture);
         user_Name = (TextView) findViewById(R.id.nombreDeUsuario);
         user_Points = (TextView) findViewById(R.id.puntosDeUsuario);
@@ -58,16 +63,16 @@ public class userProfile extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Ustats u = new Ustats();
-                u.getTimeUstats(mContext);
+                u.getTimeUstats(mContext, array);
 
                 //aca se debe de cerrar sesion
-                //temporal para obtenr el paquete de las aplicaciones
+                /*temporal para obtenr el paquete de las aplicaciones
                 final PackageManager pm = getPackageManager();
                 List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
 
                 for (ApplicationInfo packageInfo : packages) {
                     Log.d("Packages", "" + packageInfo.packageName);
-                }
+                }*/
 
             }
         });
