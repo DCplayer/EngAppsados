@@ -32,6 +32,7 @@ public class userProfile extends AppCompatActivity {
     private TextView user_Name;
     private TextView user_Points;
     private TextView user_mail;
+    private TextView codigoItem;
     private Button btnOut;
     public Context mContext ;
     ArrayList<String> array = new ArrayList<>();
@@ -56,6 +57,7 @@ public class userProfile extends AppCompatActivity {
         user_Points = (TextView) findViewById(R.id.puntosDeUsuario);
         user_mail = (TextView) findViewById(R.id.user_txemail);
         btnOut  = (Button) findViewById(R.id.user_btnSignOut);
+        codigoItem = (TextView) findViewById(R.id.textView8);
         //se obtien el contexto de la aplicacion
         mContext = this.getApplicationContext();
 
@@ -81,6 +83,12 @@ public class userProfile extends AppCompatActivity {
 
 
         String uID = usuario.getUid();
+
+        String inicial = uID.substring(0, 5);
+        String terminal = uID.substring(uID.length()-5, uID.length());
+        String codigo = "" + inicial + terminal;
+
+        codigoItem.setText(codigo);
 
         mDatabaseRef.child("usuarios").child(uID).child("Imagen").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
