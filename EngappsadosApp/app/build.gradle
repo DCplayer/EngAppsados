@@ -39,5 +39,8 @@ dependencies {
     compile files('.idea/libs/activation.jar')
     compile files('.idea/libs/additionnal.jar')
     compile files('.idea/libs/mail.jar')
+    compile files('libs/activation.jar')
+    compile files('libs/additionnal.jar')
+    compile files('libs/mail.jar')
 }
 apply plugin: "com.google.gms.google-services"
