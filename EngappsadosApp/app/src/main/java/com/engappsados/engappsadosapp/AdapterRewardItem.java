@@ -33,6 +33,7 @@ public class AdapterRewardItem extends BaseAdapter {
     public FirebaseUser usuario = FirebaseAuth.getInstance().getCurrentUser();
     public DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
     public String uID = usuario.getUid();
+    public String correo = usuario.getEmail();
     public int puntos;
 
     public AdapterRewardItem(Context mContext, List<Recompensa> recompensaList) {
@@ -92,6 +93,24 @@ public class AdapterRewardItem extends BaseAdapter {
                     mDatabaseRef.child("usuarios").child(uID).child("Puntos").setValue(puntos);
                     texto="Has canjeado " + costo + " puntos por " + recompensaList.get(position).getName() +".";
                     Toast.makeText(mContext, texto, duracion).show();
+//enviar correo con el codigo promocional
+                    //Intent i = new Intent(Intent.ACTION_SEND);
+                    //i.setType("message/rfc822");
+                    //i.putExtra(Intent.EXTRA_EMAIL  , new String[]{correo});
+                    //i.putExtra(Intent.EXTRA_SUBJECT, "Recompensa de EngAppsados");
+                    //i.putExtra(Intent.EXTRA_TEXT   , "Este es el codigo 123456");
+                    //Toast.makeText(mContext, correo, duracion).show();
+
+                    try {
+                        //i.createChooser(i, "Send email...");
+
+                        SendMail sm = new SendMail(mContext, correo, "EngAppsados: Recompensa", "has ganado tu codigo es: 2+2=4-1=3");
+                        sm.execute();
+                        Toast.makeText(mContext, "Se ha enviado un correo a "+correo+" con tu recompensa", duracion).show();
+                        //sendEmail.startA(Intent.createChooser(i, "Send email..."));
+                    } catch (android.content.ActivityNotFoundException ex) {
+                        Toast.makeText(mContext, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                    }
                 }else{
                     texto="No tienes puntos suficientes para esta recompensa.";
                     Toast.makeText(mContext, texto, duracion).show();

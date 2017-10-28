@@ -36,5 +36,8 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.android.support:design:23.4.0'
     testCompile 'junit:junit:4.12'
+    compile files('.idea/libs/activation.jar')
+    compile files('.idea/libs/additionnal.jar')
+    compile files('.idea/libs/mail.jar')
 }
 apply plugin: "com.google.gms.google-services"
