@@ -2,6 +2,7 @@ package com.engappsados.engappsadosapp;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
@@ -21,11 +22,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
-import java.util.List;
 
-//comentario de prueba
+
 
 public class userProfile extends AppCompatActivity {
     private static final String TAG = "";
@@ -34,7 +33,7 @@ public class userProfile extends AppCompatActivity {
     private TextView user_Points;
     private TextView user_mail;
     private TextView codigoItem;
-    private Button btnOut;
+    private Button btnOut, btnCanjearCodigo;
     public Context mContext ;
     ArrayList<String> array = new ArrayList<>();
     ArrayList<Integer> arrayt = new ArrayList<>();
@@ -59,6 +58,7 @@ public class userProfile extends AppCompatActivity {
         user_mail = (TextView) findViewById(R.id.user_txemail);
         btnOut  = (Button) findViewById(R.id.user_btnSignOut);
         codigoItem = (TextView) findViewById(R.id.textView8);
+        btnCanjearCodigo = (Button) findViewById(R.id.user_btnCanjearCodigo);
         //se obtien el contexto de la aplicacion
         mContext = this.getApplicationContext();
 
@@ -77,6 +77,14 @@ public class userProfile extends AppCompatActivity {
                 for (ApplicationInfo packageInfo : packages) {
                     Log.d("Packages", "" + packageInfo.packageName);
                 }*/
+
+            }
+        });
+        //listener del boton que prueba lleva a la pantalla de probar el codigo de invitacion.
+        btnCanjearCodigo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(userProfile.this, CanjearCodigo.class));
 
             }
         });

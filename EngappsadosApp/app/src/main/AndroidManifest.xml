@@ -64,6 +64,7 @@
             android:name=".Developer"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait" />
+        <activity android:name=".CanjearCodigo"></activity>
     </application>
 
 </manifest>
