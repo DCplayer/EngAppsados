@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Check if permission enabled
+        //Check if permission enabled/*
         boolean granted = false;
         AppOpsManager appOps = (AppOpsManager) this
                 .getSystemService(this.APP_OPS_SERVICE);
@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if(!granted){
+            //startActivity(new Intent(MainActivity.this, Permissions.class));
             Toast.makeText(MainActivity.this, "Necesito permisos!" , Toast.LENGTH_LONG).show();
             startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS));
         }else{

@@ -69,6 +69,10 @@
             android:name=".ReportarErrores"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".Permissions"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
