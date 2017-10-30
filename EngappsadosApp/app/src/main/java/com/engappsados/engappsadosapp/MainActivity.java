@@ -3,9 +3,16 @@
 // Actividad principal del programa
 package com.engappsados.engappsadosapp;
 
+import android.*;
+import android.Manifest;
+import android.app.AppOpsManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.provider.Settings;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -47,11 +54,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     * */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //Check if permission enabled
-        //Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
-        //startActivity(intent);
+        boolean granted = false;
+        AppOpsManager appOps = (AppOpsManager) this
+                .getSystemService(this.APP_OPS_SERVICE);
+        int mode = appOps.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS,
+                android.os.Process.myUid(), this.getPackageName());
+
+        if (mode == AppOpsManager.MODE_DEFAULT) {
+            granted = (this.checkCallingOrSelfPermission(android.Manifest.permission.PACKAGE_USAGE_STATS) == PackageManager.PERMISSION_GRANTED);
+        } else {
+            granted = (mode == AppOpsManager.MODE_ALLOWED);
+        }
+
+        if(!granted){
+            Toast.makeText(MainActivity.this, "Necesito permisos!" , Toast.LENGTH_LONG).show();
+            startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS));
+        }else{
+            Toast.makeText(MainActivity.this, "Si hay!" , Toast.LENGTH_LONG).show();
+        }
+
         Prof_secction = (LinearLayout) findViewById(R.id.SingIn_panel);
         SignIn = (SignInButton) findViewById(R.id.btn_SignIn);
         SignIn.setOnClickListener(this);

@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.engappsados.engappsadosapp"
-        minSdkVersion 19
+        minSdkVersion 23
         targetSdkVersion 23
         versionCode 3
         versionName "0.7.5 Alpha"
