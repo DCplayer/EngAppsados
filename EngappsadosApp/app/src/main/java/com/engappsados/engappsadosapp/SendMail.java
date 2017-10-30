@@ -21,6 +21,7 @@ import javax.mail.internet.MimeMessage;
 
 /**
  * Created by Belal on 10/30/2015.
+ * adaptado para funcionar con engappsados
  */
 
 //Class is extending AsyncTask because this class is going to perform a networking operation
