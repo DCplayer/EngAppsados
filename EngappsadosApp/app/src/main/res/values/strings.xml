@@ -42,6 +42,7 @@
     <string name="tab_tienda">Aqui va la pantalla de tienda</string>
     <string name="tab_appsa">Aqui va la pantalla de apps</string>
     <string name="action_User">Mi Perfil</string>
+    <string name="action_Bug">Reporte de Bugs</string>
 
     <!-- politicas de uso-->
     <string name="politics_title">Políticas y Términos de uso</string>

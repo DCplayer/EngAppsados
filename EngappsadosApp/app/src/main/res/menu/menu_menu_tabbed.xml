@@ -4,6 +4,12 @@
     tools:context="com.engappsados.engappsadosapp.MenuTabbed">
 
     <item
+        android:id="@+id/action_Bug"
+        android:icon="@drawable/ic_bug_report_white_48dp"
+        android:title="@string/action_Bug"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/action_User"
         android:icon="@drawable/ic_person_white_48dp"
         android:title="@string/action_User"

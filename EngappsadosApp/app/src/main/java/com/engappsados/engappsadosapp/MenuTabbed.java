@@ -92,15 +92,23 @@ public class MenuTabbed extends AppCompatActivity {
             t.add(as.getTiempoenMins());
         }
 
-        Intent intent = new Intent(this, userProfile.class);
-        Bundle b = new Bundle();
-        b.putStringArrayList("aplicaciones",a); //Your id
-        b.putIntegerArrayList("tiempo",t);
-        b.putIntegerArrayList("puntos",p);
-        intent.putExtras(b); //Put your id to your next Intent
-        this.startActivity(intent);
+
         switch (item.getItemId()){
             case R.id.action_User:
+                Intent intent = new Intent(this, userProfile.class);
+                Bundle b = new Bundle();
+                b.putStringArrayList("aplicaciones",a); //Your id
+                b.putIntegerArrayList("tiempo",t);
+                b.putIntegerArrayList("puntos",p);
+                intent.putExtras(b); //Put your id to your next Intent
+                this.startActivity(intent);
+                //startActivity(new Intent(this, userProfile.class));
+                //haciendo pruebas
+                //startActivity(new Intent(MenuTabbed.this, GoogleForm_Activity.class));
+                return true;
+
+            case R.id.action_Bug:
+                startActivity(new Intent(this, ReportarErrores.class));
                 //startActivity(new Intent(this, userProfile.class));
                 //haciendo pruebas
                 //startActivity(new Intent(MenuTabbed.this, GoogleForm_Activity.class));
