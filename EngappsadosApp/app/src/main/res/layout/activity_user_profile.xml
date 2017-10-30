@@ -41,7 +41,7 @@
             android:layout_marginTop="20dp"
             android:paddingLeft="@dimen/desc_padding"
             android:paddingRight="@dimen/desc_padding"
-            android:text="Tu ID: "
+            android:text="ID: "
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="@dimen/slide_title"
