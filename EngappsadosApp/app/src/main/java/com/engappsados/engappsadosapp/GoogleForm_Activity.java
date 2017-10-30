@@ -65,7 +65,7 @@ public class GoogleForm_Activity extends AppCompatActivity {
                 }
             }
         });
-        // habilita la posibilidad de que la pagian sea responsive
+        // habilita la posibilidad de que la pagina sea responsive
         mWebView.getSettings().setUseWideViewPort(true);
         // Cargar la URL
         mWebView.loadUrl(url);

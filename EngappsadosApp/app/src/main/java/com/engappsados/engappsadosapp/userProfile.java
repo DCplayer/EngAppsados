@@ -84,7 +84,7 @@ public class userProfile extends AppCompatActivity {
         btnCanjearCodigo.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                startActivity(new Intent(userProfile.this, CanjearCodigo.class));
+                startActivity(new Intent(userProfile.this, ReportarErrores.class));
 
             }
         });

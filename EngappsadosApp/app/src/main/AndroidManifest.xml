@@ -64,7 +64,11 @@
             android:name=".Developer"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait" />
-        <activity android:name=".CanjearCodigo"></activity>
+        <activity android:name=".CanjearCodigo" />
+        <activity
+            android:name=".ReportarErrores"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

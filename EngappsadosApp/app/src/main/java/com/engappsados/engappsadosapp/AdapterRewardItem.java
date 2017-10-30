@@ -67,7 +67,7 @@ public class AdapterRewardItem extends BaseAdapter {
         titulo.setText(recompensaList.get(position).getName());
         precio.setText(recompensaList.get(position).getPrice() + " pts.");
 
-        //Colocar la imagen de la aplicacion
+        //Colocar la imagen de la recompensa
         String imgUrl = recompensaList.get(position).getImagen();
         /*Colocando dimensiones de la imagen del app y la forma que puede tener*/
         Picasso.with(mContext).load(imgUrl).into(imagen);
