@@ -5,6 +5,11 @@
     <string name="skip">SALTAR</string>
     <string name="start">ENTENDIDO</string>
 
+    <string name="perm_title">Permisos del Usuario</string>
+    <string name="perm_desc">EngAppsados necesita que le concedas permisos para poder
+        acceder a datos de estadísticas de uso del dispositivo, como por ejemplo,
+        aplicaciones instaladas y su tiempo de uso. Agradecemos tu comprensión :)</string>
+
     <string name="slide_1_title">Bienvenido</string>
     <string name="slide_1_desc">EngAppsados es la  aplicación que te permite conocer las últimas
         noticias de tecnología en Guatemala. Además puedes probar las nuevas aplicaciones
