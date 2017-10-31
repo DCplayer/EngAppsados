@@ -9,13 +9,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 /**
- * Created by Christian12 on 28/10/2017.
+ * Created by DCplayer on 28/10/2017.
  */
 
 public class SumadorRestadorPuntos {
     private int costo;
     private String uID;
     private int puntos;
+    private boolean booleano = true;
 
     public FirebaseUser usuario = FirebaseAuth.getInstance().getCurrentUser();
     public DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference();
@@ -31,17 +32,19 @@ public class SumadorRestadorPuntos {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 puntos = Integer.parseInt(dataSnapshot.getValue().toString());
+                if (booleano){
+                    puntos = puntos + costo;
+                    mDatabaseRef.child("usuarios").child(uID).child("Puntos").setValue(puntos);
+                    booleano = false;
+                }
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-
-        puntos = puntos + costo;
-
-        mDatabaseRef.child("usuarios").child(uID).child("Puntos").setValue(puntos);
-
+        booleano = false;
     }
+
 
     public void restar(){
         mDatabaseRef.child("usuarios").child(uID).child("Puntos").addValueEventListener(new ValueEventListener() {
