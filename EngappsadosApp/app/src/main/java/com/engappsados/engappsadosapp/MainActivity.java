@@ -57,27 +57,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Check if permission enabled/*
-        boolean granted = false;
-        AppOpsManager appOps = (AppOpsManager) this
-                .getSystemService(this.APP_OPS_SERVICE);
-        int mode = appOps.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS,
-                android.os.Process.myUid(), this.getPackageName());
-
-        if (mode == AppOpsManager.MODE_DEFAULT) {
-            granted = (this.checkCallingOrSelfPermission(android.Manifest.permission.PACKAGE_USAGE_STATS) == PackageManager.PERMISSION_GRANTED);
-        } else {
-            granted = (mode == AppOpsManager.MODE_ALLOWED);
-        }
-
-        if(!granted){
-            //startActivity(new Intent(MainActivity.this, Permissions.class));
-            Toast.makeText(MainActivity.this, "Necesito permisos!" , Toast.LENGTH_LONG).show();
-            startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS));
-        }else{
-            Toast.makeText(MainActivity.this, "Si hay!" , Toast.LENGTH_LONG).show();
-        }
-
         Prof_secction = (LinearLayout) findViewById(R.id.SingIn_panel);
         SignIn = (SignInButton) findViewById(R.id.btn_SignIn);
         SignIn.setOnClickListener(this);
