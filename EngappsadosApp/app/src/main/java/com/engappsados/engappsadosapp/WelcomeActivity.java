@@ -1,7 +1,9 @@
 package com.engappsados.engappsadosapp;
 
+import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -117,8 +119,23 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void launchHomeScreen() {
         prefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(WelcomeActivity.this, Permissions.class));
-        finish();
+        //Check if permission enabled
+        boolean granted = false;
+        AppOpsManager appOps = (AppOpsManager) this.getSystemService(this.APP_OPS_SERVICE);
+        int mode = appOps.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, android.os.Process.myUid(), this.getPackageName());
+        if (mode == AppOpsManager.MODE_DEFAULT) {
+            granted = (this.checkCallingOrSelfPermission(android.Manifest.permission.PACKAGE_USAGE_STATS) == PackageManager.PERMISSION_GRANTED);
+        } else {
+            granted = (mode == AppOpsManager.MODE_ALLOWED);
+        }
+        if(!granted) {
+            startActivity(new Intent(WelcomeActivity.this, Permissions.class));
+            finish();
+        }
+        else {
+            startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+            finish();
+        }
     }
 
     //  viewpager change listener

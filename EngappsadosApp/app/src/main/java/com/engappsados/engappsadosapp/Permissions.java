@@ -41,6 +41,10 @@ public class Permissions extends AppCompatActivity {
         else {
             granted = (mode == AppOpsManager.MODE_ALLOWED);
         }
+        if(granted) {
+            startActivity(new Intent(Permissions.this, MainActivity.class));
+            finish();
+        }
 
         btnExit = (Button) findViewById(R.id.btn_exit);
         btnSett = (Button) findViewById(R.id.btn_setting);
@@ -66,5 +70,30 @@ public class Permissions extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //Check if permission enabled/*
+        AppOpsManager appOps = (AppOpsManager) this.getSystemService(this.APP_OPS_SERVICE);
+        mode = appOps.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, android.os.Process.myUid(), this.getPackageName());
+        if (mode == AppOpsManager.MODE_DEFAULT) {
+            granted = (this.checkCallingOrSelfPermission(android.Manifest.permission.PACKAGE_USAGE_STATS) == PackageManager.PERMISSION_GRANTED);
+        }
+        else {
+            granted = (mode == AppOpsManager.MODE_ALLOWED);
+        }
+        if(granted) {
+            startActivity(new Intent(Permissions.this, MainActivity.class));
+            finish();
+        }
+
+        Toast.makeText(Permissions.this, "on resume" , Toast.LENGTH_LONG).show();
+        if(granted) {
+            startActivity(new Intent(Permissions.this, MainActivity.class));
+            Toast.makeText(Permissions.this, "On resume dentro del if" , Toast.LENGTH_LONG).show();
+            finish();
+        }
     }
 }
