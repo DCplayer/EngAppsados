@@ -51,6 +51,7 @@ before_install:
   # - echo yes | sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2"
 
 before_script:
+  - cd EngAppsadosApp
   - echo no | android create avd --force -n test -t "android-24" --abi "armeabi-v7a"
   - emulator -avd test -no-skin -no-window &
   - android-wait-for-emulator
