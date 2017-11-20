@@ -42,7 +42,7 @@ public class ExampleInstrumentedTest {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 int points = Integer.parseInt(dataSnapshot.getValue().toString());
                 int puntosAntes = Integer.parseInt(String.valueOf(points));
-                int res = sumador.sumar(puntosAntes, 50);
+                int res = sumador.sumarP(puntosAntes, 50);
                 int expectedRes = puntosAntes + 50;
                 assertEquals(res, expectedRes);
             }

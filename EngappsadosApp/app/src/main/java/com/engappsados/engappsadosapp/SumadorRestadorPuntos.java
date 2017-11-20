@@ -44,7 +44,7 @@ public class SumadorRestadorPuntos {
         });
         booleano = false;
     }
-    public int sumar (int a, int b){
+    public int sumarP (int a, int b){
         return a+b;
     }
 
