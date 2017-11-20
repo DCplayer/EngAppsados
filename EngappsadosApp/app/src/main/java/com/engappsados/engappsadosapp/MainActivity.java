@@ -244,4 +244,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
+    @Override
+    protected void onResume(){
+        super.onResume();
+        mVideoView.start();
+    }
 }
