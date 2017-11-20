@@ -44,7 +44,9 @@ public class SumadorRestadorPuntos {
         });
         booleano = false;
     }
-
+    public int sumar (int a, int b){
+        return a+b;
+    }
 
     public void restar(){
         mDatabaseRef.child("usuarios").child(uID).child("Puntos").addValueEventListener(new ValueEventListener() {
