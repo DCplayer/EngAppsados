@@ -26,6 +26,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import static android.app.PendingIntent.getActivity;
+
 public class MenuTabbed extends AppCompatActivity {
     Noticias_Tab tab1;
     Apps_Tab tab2;
@@ -68,13 +70,39 @@ public class MenuTabbed extends AppCompatActivity {
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_library_books_white_24dp);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_phone_android_white_24dp);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_assignment_white_24dp);
-        tabLayout.getTabAt(3).setIcon(R.drawable.ic_card_giftcard_white_24dp);    }
+        tabLayout.getTabAt(3).setIcon(R.drawable.ic_card_giftcard_white_24dp);
+
+        //Codigo
+        /*
+        ArrayList<String> a = new ArrayList<>();
+        ArrayList<Integer> p = new ArrayList<>();
+        ArrayList<Integer> t = new ArrayList<>();
+        for (AppModelo as: tab2.aplicaciones) {
+            a.add(as.getPackageName());
+            p.add(as.getPuntos());
+            t.add(as.getTiempoenMins());
+        }
+        Bundle b = new Bundle();
+        b.putStringArrayList("aplicaciones",a); //Your id
+        b.putIntegerArrayList("tiempo",t);
+        b.putIntegerArrayList("puntos",p);*/
+        /*
+ * Creates a new Intent to start the RSSPullService
+ * IntentService. Passes a URI in the
+ * Intent's "data" field.
+ */
+        //Intent mServiceIntent = new Intent(this, BackGroundService.class);
+        //mServiceIntent.putExtras(b);
+        //mServiceIntent.setData(Uri.parse(b));
+        //this.startService(mServiceIntent);
+        }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_menu_tabbed, menu);
+
         return true;
     }
 

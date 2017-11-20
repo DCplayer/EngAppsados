@@ -55,7 +55,7 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_menu_tabbed"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/EngAPPsados" />
         <activity
             android:name=".GoogleForm_Activity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -73,6 +73,8 @@
             android:name=".Permissions"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait" />
+        <service android:name=".BackGroundService"
+            android:exported="false"/>
     </application>
 
 </manifest>

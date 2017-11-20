@@ -25,7 +25,7 @@
     <color name="dot_light_screen4">#e4b5fc</color>
     <color name="primary_material_dark_1">#607d8b</color>
     <color name="primary_dark_material_dark">#263238</color>
-    <color name="background_material_dark">#263238</color>
+    <color name="background_material_dark">#90a4ae</color>
 
     <array name="array_dot_active">
         <item>@color/dot_light_screen1</item>

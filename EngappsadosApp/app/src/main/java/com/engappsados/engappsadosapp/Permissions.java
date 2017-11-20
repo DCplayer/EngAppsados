@@ -60,10 +60,10 @@ public class Permissions extends AppCompatActivity {
             public void onClick(View v) {
                 if(!granted){
                     //startActivity(new Intent(MainActivity.this, Permissions.class));
-                    Toast.makeText(Permissions.this, "Necesito permisos!" , Toast.LENGTH_LONG).show();
+                    //Toast.makeText(Permissions.this, "Necesito permisos!" , Toast.LENGTH_LONG).show();
                     startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS));
                 }else{
-                    Toast.makeText(Permissions.this, "Si hay!" , Toast.LENGTH_LONG).show();
+                    //Toast.makeText(Permissions.this, "Si hay!" , Toast.LENGTH_LONG).show();
                     startActivity(new Intent(Permissions.this, MainActivity.class));
                     finish();
                 }
@@ -89,10 +89,10 @@ public class Permissions extends AppCompatActivity {
             finish();
         }
 
-        Toast.makeText(Permissions.this, "on resume" , Toast.LENGTH_LONG).show();
+        //Toast.makeText(Permissions.this, "on resume" , Toast.LENGTH_LONG).show();
         if(granted) {
             startActivity(new Intent(Permissions.this, MainActivity.class));
-            Toast.makeText(Permissions.this, "On resume dentro del if" , Toast.LENGTH_LONG).show();
+            //Toast.makeText(Permissions.this, "On resume dentro del if" , Toast.LENGTH_LONG).show();
             finish();
         }
     }
